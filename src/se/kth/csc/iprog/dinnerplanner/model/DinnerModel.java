@@ -3,10 +3,12 @@ package se.kth.csc.iprog.dinnerplanner.model;
 import java.util.HashSet;
 import java.util.Set;
 
-public class DinnerModel {
+public class DinnerModel implements IDinnerModel{
 	
 
 	Set<Dish> dishes = new HashSet<Dish>();
+	Set<Dish> selectedDishes = new HashSet<Dish>();
+	int numOfGuest = 0;
 	
 	/**
 	 * TODO: For Lab2 you need to implement the IDinnerModel interface.
@@ -62,7 +64,7 @@ public class DinnerModel {
 	}
 	
 	/**
-	 * Returns the set of dishes of specific type. (1 = starter, 2 = main, 3 = desert).
+	 * Returns the set of dishes.
 	 */
 	public Set<Dish> getDishes(){
 		return dishes;
@@ -93,6 +95,57 @@ public class DinnerModel {
 			}
 		}
 		return result;
+	}
+	
+	
+	public int getNumberOfGuests(){
+		return this.numOfGuest; 
+	}
+	public void setNumberOfGuests(int numberOfGuests){
+		this.numOfGuest = numberOfGuests;
+	}
+	
+	/**
+	 * Returns the dish that is on the menu for selected type (1 = starter, 2 = main, 3 = desert).
+	 */
+	public Dish getSelectedDish(int type){
+		for(Dish d : this.selectedDishes){
+			if(d.getType() == type){
+				return d;
+			}
+		}
+		return null;
+	}
+	
+	/**
+	 * Returns all the dishes on the menu (selected dishes).
+	 */
+	public Set<Dish> getFullMenu(){
+		return this.selectedDishes;
+	}
+	
+	/**
+	 * Returns all ingredients for all the dishes on the menu.
+	 */
+	public Set<Ingredient> getAllIngredients(){
+		Set<Ingredient> result = new HashSet<Ingredient>();
+		for(Dish d : this.selectedDishes){
+			result.addAll(d.getIngredients());
+		}
+		return result;
+	}
+	
+	/**
+	 * Returns the total price of the menu (all the ingredients multiplied by number of guests).
+	 */
+	public float getTotalMenuPrice(){
+		float totalPrice = 0;
+		for(Dish d : this.selectedDishes){
+			for(Ingredient eachIngredient: d.getIngredients()){
+				totalPrice += eachIngredient.getPrice();
+			}			
+		}
+		return totalPrice;
 	}
 	
 	
