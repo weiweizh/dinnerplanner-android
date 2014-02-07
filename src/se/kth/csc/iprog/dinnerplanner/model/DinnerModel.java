@@ -116,6 +116,13 @@ public class DinnerModel implements IDinnerModel{
 		}
 		return null;
 	}
+	public void selectDish(Dish selDish){
+		for(Dish d : this.selectedDishes){
+			if(d.getType() == selDish.getType()){
+				d = selDish;
+			}
+		}
+	}
 	
 	/**
 	 * Returns all the dishes on the menu (selected dishes).
