@@ -13,5 +13,10 @@ Then select your courses.
 
 Watch Magic Happen!</string>
     <string name="hello_world">Hello world!</string>
+    <string name="number_of_guests">Participants</string>
+    <string name="Total">Total Cost</string>
+    <string name="menu">Choose Menu</string>
+    <string name="starter">Starter</string>
+    <string name="main">main</string>
 
 </resources>
