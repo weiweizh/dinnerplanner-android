@@ -61,6 +61,15 @@ public class DinnerModel implements IDinnerModel{
 		dish2.addIngredient(dish2ing11);
 		dishes.add(dish2);
 		
+		Dish dish3 = new Dish("Baked Brie", Dish.STARTER, "bakedbrie.jpg", "Preheat oven to 200deg. Put the brie inside. Close the oven. Bake for 50 minutes.");
+		dish3.addIngredient(new Ingredient("flour", 1/4, "wheel", 100));
+		dish3.addIngredient(new Ingredient("honey", 4, "tablespoons", 5));
+		this.dishes.add(dish3);
+		
+		Dish dish4 = new Dish("Ice-cream", Dish.DESERT, "icecream.jpg", "Scoop an ice-cream. Add chocholate chips on top.");
+		dish4.addIngredient(new Ingredient("ice-cream", 1, "scoop", 8));
+		dish4.addIngredient(new Ingredient("chocolate chips", 2, "sprinkle", 5));
+		this.dishes.add(dish4);
 	}
 	
 	/**

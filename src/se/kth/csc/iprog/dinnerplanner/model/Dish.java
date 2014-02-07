@@ -52,6 +52,14 @@ public class Dish {
 		return ingredients;
 	}
 	
+	public float getPrice(){
+		float totalPrice = 0;
+		for(Ingredient eachIngredient: this.ingredients){
+			totalPrice += eachIngredient.getPrice();
+		}
+		return totalPrice;
+	}
+	
 	public void addIngredient(Ingredient ing){
 		ingredients.add(ing);
 	}
