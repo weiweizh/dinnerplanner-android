@@ -18,5 +18,8 @@ Watch Magic Happen!</string>
     <string name="menu">Choose Menu</string>
     <string name="starter">Starter</string>
     <string name="main">main</string>
+    <string name="title_activity_choose_menu">ChooseMenuActivity</string>
+    <string name="title_activity_summary">SummaryActivity</string>
+    
 
 </resources>
