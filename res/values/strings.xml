@@ -13,5 +13,7 @@ Then select your courses.
 
 Watch Magic Happen!</string>
     <string name="hello_world">Hello world!</string>
+    <string name="title_activity_choose_menu">ChooseMenuActivity</string>
+    <string name="title_activity_summary">SummaryActivity</string>
 
 </resources>
