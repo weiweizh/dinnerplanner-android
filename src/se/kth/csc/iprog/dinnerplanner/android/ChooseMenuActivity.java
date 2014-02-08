@@ -15,7 +15,7 @@ public class ChooseMenuActivity extends Activity {
 		
 		DinnerModel model = ((DinnerPlannerApplication) this.getApplication()).getModel();
 		
-		ChooseMenuView mainView = new ChooseMenuView(findViewById(R.id.activity_choose_menu_id), model);
+		ChooseMenuView mainView = new ChooseMenuView(this, findViewById(R.id.activity_choose_menu_id), model);
 	}
 
 	@Override

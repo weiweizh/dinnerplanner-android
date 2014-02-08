@@ -39,7 +39,6 @@
             android:layout_height="wrap_content"
             android:text="@string/SEK"
             android:textAppearance="?android:attr/textAppearanceSmall" />
-
     </LinearLayout>
 
     <TextView
@@ -57,61 +56,20 @@
         android:text="@string/starter"
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
-    <LinearLayout
+    <HorizontalScrollView
+        android:id="@+id/starter_list_container"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
+        android:layout_height="wrap_content"
+        android:layout_weight="0.74" >
 
-        <ImageView
-            android:id="@+id/starter1"
-            android:layout_width="93dp"
-            android:layout_height="58dp"
-            android:layout_margin="10dp"
-            android:src="@drawable/bakedbrie" />
+        <LinearLayout
+            android:id="@+id/starter_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal" >
 
-        <ImageView
-            android:id="@+id/starter2"
-            android:layout_width="93dp"
-            android:layout_height="58dp"
-            android:layout_margin="10dp"
-            android:src="@drawable/bakedbrie" />
-
-        <ImageView
-            android:id="@+id/starter3"
-            android:layout_width="93dp"
-            android:layout_height="58dp"
-            android:layout_margin="10dp"
-            android:src="@drawable/bakedbrie" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
-
-        <TextView
-            android:id="@+id/startername1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:text="Small Text"
-            android:textAppearance="?android:attr/textAppearanceSmall" />
-
-        <TextView
-            android:id="@+id/startername2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="50dp"
-            android:text="Small Text"
-            android:textAppearance="?android:attr/textAppearanceSmall" />
-
-        <TextView
-            android:id="@+id/startername3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="50dp"
-            android:text="Small Text"
-            android:textAppearance="?android:attr/textAppearanceSmall" />
-
-    </LinearLayout>
+        </LinearLayout>
+    </HorizontalScrollView>
 
     <TextView
         android:id="@+id/main_course"
@@ -120,126 +78,47 @@
         android:text="Main Course"
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
-    <LinearLayout
+    <HorizontalScrollView
+        android:id="@+id/main_course_list_container"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
-        <ImageView
-            android:id="@+id/main1"
-            android:layout_width="93dp"
-            android:layout_height="58dp"
-            android:layout_margin="10dp"
-            android:src="@drawable/bakedbrie" />
+        android:layout_height="wrap_content"
+        android:layout_weight="0.74" >
 
-        <ImageView
-            android:id="@+id/main2"
-            android:layout_width="93dp"
-            android:layout_height="58dp"
-            android:layout_margin="10dp"
-            android:src="@drawable/bakedbrie" />
+        <LinearLayout
+            android:id="@+id/main_course_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal" >
+        </LinearLayout>
+    </HorizontalScrollView>
 
-        <ImageView
-            android:id="@+id/main3"
-            android:layout_width="93dp"
-            android:layout_height="58dp"
-            android:layout_margin="10dp"
-            android:src="@drawable/bakedbrie" /> 
-    </LinearLayout>
-<LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
-
-        <TextView
-            android:id="@+id/maincourse1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:text="Small Text"
-            android:textAppearance="?android:attr/textAppearanceSmall" />
-
-        <TextView
-            android:id="@+id/maincourse2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="50dp"
-            android:text="Small Text"
-            android:textAppearance="?android:attr/textAppearanceSmall" />
-
-        <TextView
-            android:id="@+id/maincourse3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="50dp"
-            android:text="Small Text"
-            android:textAppearance="?android:attr/textAppearanceSmall" />
-
-    </LinearLayout>
-     <TextView
+    <TextView
         android:id="@+id/dessert"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Dessert"
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
-    <LinearLayout
+    <HorizontalScrollView
+        android:id="@+id/dessert_list_container"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
-        <ImageView
-            android:id="@+id/dessert1"
-            android:layout_width="93dp"
-            android:layout_height="58dp"
-            android:layout_margin="10dp"
-            android:src="@drawable/bakedbrie" />
+        android:layout_height="wrap_content"
+        android:layout_weight="0.74" >
 
-        <ImageView
-            android:id="@+id/dessert2"
-            android:layout_width="93dp"
-            android:layout_height="58dp"
-            android:layout_margin="10dp"
-            android:src="@drawable/bakedbrie" />
+        <LinearLayout
+            android:id="@+id/dessert_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal" >
+        </LinearLayout>
+    </HorizontalScrollView>
 
-        <ImageView
-            android:id="@+id/dessert3"
-            android:layout_width="93dp"
-            android:layout_height="58dp"
-            android:layout_margin="10dp"
-            android:src="@drawable/bakedbrie" /> 
-    </LinearLayout>
-<LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
-
-        <TextView
-            android:id="@+id/dessert_1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:text="Small Text"
-            android:textAppearance="?android:attr/textAppearanceSmall" />
-
-        <TextView
-            android:id="@+id/dessert_2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="50dp"
-            android:text="Small Text"
-            android:textAppearance="?android:attr/textAppearanceSmall" />
-
-        <TextView
-            android:id="@+id/dessert_3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="50dp"
-            android:text="Small Text"
-            android:textAppearance="?android:attr/textAppearanceSmall" />
-
-    </LinearLayout>
-
-<Button
-    android:id="@+id/creat_button"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_gravity="center"
-    android:layout_marginTop="40dp"
-    android:text="Creat" />
+    <Button
+        android:id="@+id/creat_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="40dp"
+        android:text="Creat" />
 
 </LinearLayout>
