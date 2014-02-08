@@ -1,16 +1,244 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context=".ChooseMenuActivity" >
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <TextView
+            android:id="@+id/participants"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/number_of_guests" />
+
+        <Spinner
+            android:id="@+id/spinner1"
+            android:layout_width="60dp"
+            android:layout_height="match_parent" />
+
+        <TextView
+            android:id="@+id/total"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/total" />
+
+        <TextView
+            android:id="@+id/total_cost"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+
+        <TextView
+            android:id="@+id/SEK"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/SEK"
+            android:textAppearance="?android:attr/textAppearanceSmall" />
+
+    </LinearLayout>
 
     <TextView
+        android:id="@+id/label_chooseMenu"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/hello_world" />
+        android:layout_gravity="center_horizontal"
+        android:text="@string/menu"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
 
-</RelativeLayout>
+    <TextView
+        android:id="@+id/label_starter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/starter"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <ImageView
+            android:id="@+id/starter1"
+            android:layout_width="93dp"
+            android:layout_height="58dp"
+            android:layout_margin="10dp"
+            android:src="@drawable/bakedbrie" />
+
+        <ImageView
+            android:id="@+id/starter2"
+            android:layout_width="93dp"
+            android:layout_height="58dp"
+            android:layout_margin="10dp"
+            android:src="@drawable/bakedbrie" />
+
+        <ImageView
+            android:id="@+id/starter3"
+            android:layout_width="93dp"
+            android:layout_height="58dp"
+            android:layout_margin="10dp"
+            android:src="@drawable/bakedbrie" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <TextView
+            android:id="@+id/startername1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:text="Small Text"
+            android:textAppearance="?android:attr/textAppearanceSmall" />
+
+        <TextView
+            android:id="@+id/startername2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="50dp"
+            android:text="Small Text"
+            android:textAppearance="?android:attr/textAppearanceSmall" />
+
+        <TextView
+            android:id="@+id/startername3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="50dp"
+            android:text="Small Text"
+            android:textAppearance="?android:attr/textAppearanceSmall" />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/main_course"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Main Course"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+        <ImageView
+            android:id="@+id/main1"
+            android:layout_width="93dp"
+            android:layout_height="58dp"
+            android:layout_margin="10dp"
+            android:src="@drawable/bakedbrie" />
+
+        <ImageView
+            android:id="@+id/main2"
+            android:layout_width="93dp"
+            android:layout_height="58dp"
+            android:layout_margin="10dp"
+            android:src="@drawable/bakedbrie" />
+
+        <ImageView
+            android:id="@+id/main3"
+            android:layout_width="93dp"
+            android:layout_height="58dp"
+            android:layout_margin="10dp"
+            android:src="@drawable/bakedbrie" /> 
+    </LinearLayout>
+<LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <TextView
+            android:id="@+id/maincourse1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:text="Small Text"
+            android:textAppearance="?android:attr/textAppearanceSmall" />
+
+        <TextView
+            android:id="@+id/maincourse2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="50dp"
+            android:text="Small Text"
+            android:textAppearance="?android:attr/textAppearanceSmall" />
+
+        <TextView
+            android:id="@+id/maincourse3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="50dp"
+            android:text="Small Text"
+            android:textAppearance="?android:attr/textAppearanceSmall" />
+
+    </LinearLayout>
+     <TextView
+        android:id="@+id/dessert"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Dessert"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+        <ImageView
+            android:id="@+id/dessert1"
+            android:layout_width="93dp"
+            android:layout_height="58dp"
+            android:layout_margin="10dp"
+            android:src="@drawable/bakedbrie" />
+
+        <ImageView
+            android:id="@+id/dessert2"
+            android:layout_width="93dp"
+            android:layout_height="58dp"
+            android:layout_margin="10dp"
+            android:src="@drawable/bakedbrie" />
+
+        <ImageView
+            android:id="@+id/dessert3"
+            android:layout_width="93dp"
+            android:layout_height="58dp"
+            android:layout_margin="10dp"
+            android:src="@drawable/bakedbrie" /> 
+    </LinearLayout>
+<LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <TextView
+            android:id="@+id/dessert_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:text="Small Text"
+            android:textAppearance="?android:attr/textAppearanceSmall" />
+
+        <TextView
+            android:id="@+id/dessert_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="50dp"
+            android:text="Small Text"
+            android:textAppearance="?android:attr/textAppearanceSmall" />
+
+        <TextView
+            android:id="@+id/dessert_3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="50dp"
+            android:text="Small Text"
+            android:textAppearance="?android:attr/textAppearanceSmall" />
+
+    </LinearLayout>
+
+<Button
+    android:id="@+id/creat_button"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:layout_marginTop="40dp"
+    android:text="Creat" />
+
+</LinearLayout>
