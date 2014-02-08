@@ -161,7 +161,7 @@ public class DinnerModel implements IDinnerModel{
 				totalPrice += eachIngredient.getPrice();
 			}			
 		}
-		return totalPrice;
+		return totalPrice*this.numOfGuest;
 	}
 	
 	
