@@ -1,16 +1,153 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".SummaryActivity" >
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <Button
+            android:id="@+id/back_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingRight="20dp"
+            android:text="Back" />
+
+         <TextView
+            android:id="@+id/total"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/total" />
+
+        <TextView
+            android:id="@+id/total_cost"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+
+        <TextView
+            android:id="@+id/SEK"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/SEK"
+            android:textAppearance="?android:attr/textAppearanceSmall" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <TextView
+            android:id="@+id/Ingredients"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ingredients"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+
+        <TextView
+            android:id="@+id/Instructions"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:paddingLeft="90dp"
+            android:text="Instructions"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <ImageView
+            android:id="@+id/imageIngredient"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:padding="5dp"
+            android:paddingRight="20dp"
+            android:src="@drawable/sourdough" />
+
+        <ImageView
+            android:id="@+id/imageDish1"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:padding="5dp"
+            android:paddingLeft="20dp"
+            android:src="@drawable/meatballs" />
+
+        <ImageView
+            android:id="@+id/imageDish2"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:padding="5dp"
+            android:src="@drawable/toast" />
+
+        <ImageView
+            android:id="@+id/imageDish3"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:padding="5dp"
+            android:src="@drawable/icecream" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <TextView
+            android:id="@+id/dish1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="70dp"
+            android:text="Meat Ball"
+            android:textAppearance="?android:attr/textAppearanceSmall" />
+
+        <TextView
+            android:id="@+id/dish2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="20dp"
+            android:text="Toast"
+            android:textAppearance="?android:attr/textAppearanceSmall" />
+
+        <TextView
+            android:id="@+id/dish3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="20dp"
+            android:text="Ice-cream"
+            android:textAppearance="?android:attr/textAppearanceSmall" />
+
+    </LinearLayout>
+
     <TextView
+        android:id="@+id/dishType"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/hello_world" />
+        android:text="Starter"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
 
-</RelativeLayout>
+    <TextView
+        android:id="@+id/dishName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Ice-cream"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <TextView
+        android:id="@+id/receipe"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/receipe" />
+
+</LinearLayout>

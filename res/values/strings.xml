@@ -4,22 +4,19 @@
     <string name="app_name">DinnerPlanner</string>
     <string name="action_settings">Settings</string>
     <string name="start">start</string>
-    <string name="welcome_letter">Welcome to Dinner Planner!
-
-Here you will be able to easily plan your dinner.
-
-On the next page start by selecting number of participants.
-Then select your courses.
-
-Watch Magic Happen!</string>
+    <string name="welcome_letter">Welcome to Dinner Planner!\nHere you will be able to easily plan your dinner.\nOn the next page start by selecting number of participants.
+Then select your courses.\nWatch Magic Happen!</string>
     <string name="hello_world">Hello world!</string>
     <string name="number_of_guests">Participants</string>
-    <string name="Total">Total Cost</string>
+    <string name="total">Total Cost         </string>
     <string name="menu">Choose Menu</string>
     <string name="starter">Starter</string>
     <string name="main">main</string>
     <string name="title_activity_choose_menu">ChooseMenuActivity</string>
     <string name="title_activity_summary">SummaryActivity</string>
+    <string name="receipe">Turn one the oven at 150C\n Carve bread\n Put tomato and cheese on bread\n Place in oven for 10min\n</string>
+    <string name="total_number"></string>
+    <string name="SEK">SEK</string>
     
 
 </resources>
