@@ -2,10 +2,12 @@ package se.kth.csc.iprog.dinnerplanner.android.view;
 
 import java.util.Set;
 
+import se.kth.csc.iprog.dinnerplanner.android.DinnerPlannerApplication;
 import se.kth.csc.iprog.dinnerplanner.android.R;
 import se.kth.csc.iprog.dinnerplanner.model.DinnerModel;
 import se.kth.csc.iprog.dinnerplanner.model.Dish;
 import android.net.Uri;
+import android.content.Context;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.ImageView;
@@ -25,7 +27,7 @@ public class SummaryView {
 		this.view = view;
 		this.model = dinnerModel;
 		
-
+		Context context = this.view.getContext();
 
 		//Set total cost
 		TextView totalCost = (TextView) view.findViewById(R.id.total_cost);	
@@ -53,15 +55,18 @@ public class SummaryView {
 			this.selectedDish = d;
 			//***temp end***
 			
-			Uri uri = Uri.parse("android.resource://se.kth.csc.iprog.dinnerplanner.android/drawable/" + d.getImage());
+//			Uri uri = Uri.parse("android.resource://se.kth.csc.iprog.dinnerplanner.android/drawable/" + d.getImage());
 			if(d.getType() == Dish.STARTER){
-				dishImage1.setImageURI(uri);
+//				dishImage1.setImageURI(uri);
+				dishImage1.setImageResource(DinnerPlannerApplication.getImageResId(context, d.getImage()));
 				dishCaption1.setText(d.getName());
 			}else if(d.getType() == Dish.MAIN){
-				dishImage2.setImageURI(uri);
+//				dishImage2.setImageURI(uri);
+				dishImage2.setImageResource(DinnerPlannerApplication.getImageResId(context, d.getImage()));
 				dishCaption2.setText(d.getName());
 			}else if(d.getType() == Dish.DESERT){
-				dishImage3.setImageURI(uri);
+//				dishImage3.setImageURI(uri);
+				dishImage3.setImageResource(DinnerPlannerApplication.getImageResId(context, d.getImage()));
 				dishCaption3.setText(d.getName());
 			}
 		}

@@ -1,5 +1,6 @@
 package se.kth.csc.iprog.dinnerplanner.android.view;
 
+import se.kth.csc.iprog.dinnerplanner.android.DinnerPlannerApplication;
 import se.kth.csc.iprog.dinnerplanner.android.R;
 import se.kth.csc.iprog.dinnerplanner.model.Dish;
 import android.widget.ImageView;
@@ -26,8 +27,9 @@ public class DishItemView extends LinearLayout{
 		
 		//Set image
 		ImageView dishImage = (ImageView) this.findViewById(R.id.dish_item_image);
-		Uri uri = Uri.parse("android.resource://se.kth.csc.iprog.dinnerplanner.android/drawable/" + this.dish.getImage());
-		dishImage.setImageURI(uri);
+//		Uri uri = Uri.parse("android.resource://se.kth.csc.iprog.dinnerplanner.android/drawable/" + this.dish.getImage());
+//		dishImage.setImageURI(uri);
+		dishImage.setImageResource(DinnerPlannerApplication.getImageResId(context, this.dish.getImage()));
 
 		
 		//Set text

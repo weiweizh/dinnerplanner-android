@@ -10,6 +10,7 @@ import se.kth.csc.iprog.dinnerplanner.android.view.DishItemView;
 import android.content.Context;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.EditText;
 import android.widget.LinearLayout;
 
 public class ChooseMenuView {
@@ -17,12 +18,17 @@ public class ChooseMenuView {
 	View view;
 	DinnerModel model;
 
-	public ChooseMenuView(Context context, View view, DinnerModel dinnerModel) {
+	public ChooseMenuView(View view, DinnerModel dinnerModel) {
 
 		// store in the class the reference to the Android View
 		this.view = view;
 		this.model = dinnerModel;
+		Context context = this.view.getContext();
 
+		//Set num of Guest
+		EditText numOfGuest = (EditText) view.findViewById(R.id.num_of_guest);
+		numOfGuest.setText(String.valueOf(this.model.getNumberOfGuests()));
+		
 		//Set total cost
 		TextView totalCost = (TextView) view.findViewById(R.id.total_cost);	
 		totalCost.setText(String.valueOf(this.model.getTotalMenuPrice()));
