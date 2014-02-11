@@ -50,7 +50,7 @@
             android:textAppearance="?android:attr/textAppearanceSmall" />
     </LinearLayout>
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content" >
 
@@ -65,14 +65,14 @@
             android:id="@+id/Instructions"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:padding="10dp"
-            android:paddingLeft="90dp"
+            android:paddingLeft="60dp"
             android:text="@string/instructions"
-            android:textAppearance="?android:attr/textAppearanceMedium" />
+            android:textAppearance="?android:attr/textAppearanceMedium" 
+            android:layout_toRightOf="@id/Ingredients"/>
+        
+  </RelativeLayout>
 
-    </LinearLayout>
-
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content" >
 
@@ -89,58 +89,66 @@
             android:id="@+id/imageDish1"
             android:layout_width="64dp"
             android:layout_height="64dp"
+            android:layout_marginLeft="30dp"
             android:padding="5dp"
-            android:paddingLeft="20dp"
             android:contentDescription="@string/desc"
-            android:src="@drawable/meatballs" />
+            android:src="@drawable/meatballs" 
+            android:layout_toRightOf="@id/imageIngredient"/>
 
         <ImageView
             android:id="@+id/imageDish2"
             android:layout_width="64dp"
             android:layout_height="64dp"
+            android:layout_marginLeft="15dp"
             android:padding="5dp"
             android:contentDescription="@string/desc"
-            android:src="@drawable/toast" />
+            android:src="@drawable/toast" 
+            android:layout_toRightOf="@id/imageDish1"/>
 
         <ImageView
             android:id="@+id/imageDish3"
             android:layout_width="64dp"
             android:layout_height="64dp"
+            android:layout_marginLeft="15dp"
             android:padding="5dp"
             android:contentDescription="@string/desc"
-            android:src="@drawable/icecream" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
-
-        <TextView
+            android:src="@drawable/icecream" 
+            android:layout_toRightOf="@id/imageDish2"/>
+        
+         <TextView
             android:id="@+id/dish1_caption"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:paddingLeft="70dp"
+            android:layout_alignLeft="@id/imageDish1"
+            android:layout_marginLeft="-5dp"
             android:text="@string/disk1"
-            android:textAppearance="?android:attr/textAppearanceSmall" />
+            android:textAppearance="?android:attr/textAppearanceSmall" 
+            android:layout_below="@id/imageDish1"/>
 
         <TextView
             android:id="@+id/dish2_caption"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:paddingLeft="20dp"
+            android:layout_toRightOf="@id/dish1_caption"
+            android:layout_marginLeft="10dp"
             android:text="@string/disk2"
-            android:textAppearance="?android:attr/textAppearanceSmall" />
+            android:textAppearance="?android:attr/textAppearanceSmall" 
+            android:layout_below="@id/imageDish2"/>
 
         <TextView
             android:id="@+id/dish3_caption"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:paddingLeft="20dp"
+            android:layout_toRightOf="@id/dish2_caption"
+           
+            android:layout_marginLeft="10dp"
             android:text="@string/disk3"
-            android:textAppearance="?android:attr/textAppearanceSmall" />
+            android:textAppearance="?android:attr/textAppearanceSmall" 
+            android:layout_below="@id/imageDish3"/>
 
-    </LinearLayout>
+    </RelativeLayout>
+
+     
 
     <RelativeLayout
         android:id="@+id/instruction_layout"
@@ -166,7 +174,7 @@
             android:id="@+id/receipe_desc"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/dish_name_title"
+            android:layout_below="@id/dish_name_title"
             android:text="@string/receipe" />
     </RelativeLayout>
 
