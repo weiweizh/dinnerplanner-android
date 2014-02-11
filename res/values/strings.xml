@@ -17,6 +17,18 @@ Then select your courses.\nWatch Magic Happen!</string>
     <string name="receipe">Turn on the oven at 150C\n Carve bread\n Put tomato and cheese on bread\n Place in oven for 10min\n</string>
     <string name="total_number"></string>
     <string name="SEK">SEK</string>
+    <string name="total_cost_value">999</string>
+    <string name="main_course">Main Course</string>
+    <string name="dessert">Dessert</string>
+    <string name="create_button">Create</string>
+    <string name="back_button">Back</string>
+    <string name="ingredients">Ingredients</string>
+    <string name="instructions">Instructions</string>
+    <string name="desc"></string>
+    <string name="disk1">Meat Ball</string>
+    <string name="disk2">Toast</string>
+    <string name="disk3">Ice Cream</string>
+    <string name="starter">Starter</string>
     
 
 </resources>

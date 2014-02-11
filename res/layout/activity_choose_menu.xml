@@ -30,7 +30,7 @@
             android:id="@+id/total_cost"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="999"
+            android:text="@string/total_cost_value"
             android:textAppearance="?android:attr/textAppearanceMedium" />
 
         <TextView
@@ -64,7 +64,7 @@
 
         <LinearLayout
             android:id="@+id/starter_list"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:orientation="horizontal" >
 
@@ -75,7 +75,7 @@
         android:id="@+id/main_course"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Main Course"
+        android:text="@string/main_course"
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
     <HorizontalScrollView
@@ -86,7 +86,7 @@
 
         <LinearLayout
             android:id="@+id/main_course_list"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:orientation="horizontal" >
         </LinearLayout>
@@ -96,7 +96,7 @@
         android:id="@+id/dessert"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Dessert"
+        android:text="@string/dessert"
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
     <HorizontalScrollView
@@ -107,7 +107,7 @@
 
         <LinearLayout
             android:id="@+id/dessert_list"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:orientation="horizontal" >
         </LinearLayout>
@@ -119,6 +119,6 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="40dp"
-        android:text="Creat" />
+        android:text="@string/create_button" />
 
 </LinearLayout>
