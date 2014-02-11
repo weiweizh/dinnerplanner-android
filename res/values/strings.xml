@@ -14,7 +14,7 @@ Then select your courses.\nWatch Magic Happen!</string>
     <string name="main">main</string>
     <string name="title_activity_choose_menu">ChooseMenuActivity</string>
     <string name="title_activity_summary">SummaryActivity</string>
-    <string name="receipe">Turn one the oven at 150C\n Carve bread\n Put tomato and cheese on bread\n Place in oven for 10min\n</string>
+    <string name="receipe">Turn on the oven at 150C\n Carve bread\n Put tomato and cheese on bread\n Place in oven for 10min\n</string>
     <string name="total_number"></string>
     <string name="SEK">SEK</string>
     
