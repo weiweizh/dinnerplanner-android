@@ -89,6 +89,14 @@ public class DinnerModel implements IDinnerModel{
 		dish7.addIngredient(new Ingredient("flour", 1/4, "wheel", 100));
 		dish7.addIngredient(new Ingredient("honey", 4, "tablespoons", 5));
 		this.dishes.add(dish7);
+		
+		//**TEMP for Lab1** select some default dishes for display//
+		this.selectDish(dish1);
+		this.selectDish(dish2);
+		this.selectDish(dish4);
+		
+		this.numOfGuest = 2;
+		
 	}
 	
 	/**
@@ -145,10 +153,18 @@ public class DinnerModel implements IDinnerModel{
 		return null;
 	}
 	public void selectDish(Dish selDish){
+		boolean isReplace = false;
+		
+		// Check and replace originally selected dish of same type
 		for(Dish d : this.selectedDishes){
 			if(d.getType() == selDish.getType()){
 				d = selDish;
+				isReplace = true;
 			}
+		}
+		
+		if(!isReplace){
+			this.selectedDishes.add(selDish);			
 		}
 	}
 	

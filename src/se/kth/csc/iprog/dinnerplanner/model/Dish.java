@@ -32,6 +32,17 @@ public class Dish {
 	public int getType() {
 		return type;
 	}
+	
+	public static String getTypeString(int type) {
+		if(type == STARTER){
+			return "Starter";
+		}else if(type == MAIN){
+			return "Main";
+		}else if(type == DESERT){
+			return "Dessert";
+		}
+		return "N/A";
+	}
 	public void setType(int type) {
 		this.type = type;
 	}

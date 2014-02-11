@@ -32,8 +32,8 @@ public class ChooseMenuView {
 		LinearLayout mainCourseList = (LinearLayout) view.findViewById(R.id.main_course_list);
 		LinearLayout dessertList = (LinearLayout) view.findViewById(R.id.dessert_list);
 
-		Set<Dish> startersDishes = dinnerModel.getDishes();
-		for(Dish d : startersDishes){
+		Set<Dish> allDishes = dinnerModel.getDishes();
+		for(Dish d : allDishes){
 			if(d.getType() == Dish.STARTER){
 				DishItemView dishView = new DishItemView(context, d);
 				starterList.addView(dishView);

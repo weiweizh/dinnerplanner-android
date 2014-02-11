@@ -110,7 +110,7 @@
         android:layout_height="wrap_content" >
 
         <TextView
-            android:id="@+id/dish1"
+            android:id="@+id/dish1_caption"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:paddingLeft="70dp"
@@ -118,7 +118,7 @@
             android:textAppearance="?android:attr/textAppearanceSmall" />
 
         <TextView
-            android:id="@+id/dish2"
+            android:id="@+id/dish2_caption"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:paddingLeft="20dp"
@@ -126,7 +126,7 @@
             android:textAppearance="?android:attr/textAppearanceSmall" />
 
         <TextView
-            android:id="@+id/dish3"
+            android:id="@+id/dish3_caption"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:paddingLeft="20dp"
@@ -136,21 +136,21 @@
     </LinearLayout>
 
     <TextView
-        android:id="@+id/dishType"
+        android:id="@+id/dish_type_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/starter"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <TextView
-        android:id="@+id/dishName"
+        android:id="@+id/dish_name_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/disk2"
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
     <TextView
-        android:id="@+id/receipe"
+        android:id="@+id/receipe_desc"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/receipe" />
