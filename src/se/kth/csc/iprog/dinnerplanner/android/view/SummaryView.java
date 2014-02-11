@@ -32,7 +32,6 @@ public class SummaryView {
 		totalCost.setText(String.valueOf(this.model.getTotalMenuPrice()));
 
 		//Set the selected dish imageView
-		
 		ImageView dishImage1 = (ImageView) this.view.findViewById(R.id.imageDish1);
 		ImageView dishImage2 = (ImageView) this.view.findViewById(R.id.imageDish2);
 		ImageView dishImage3 = (ImageView) this.view.findViewById(R.id.imageDish3);
@@ -67,6 +66,11 @@ public class SummaryView {
 			}
 		}
 		
+		//TODO:add interaction Temp: toggle below to show / hide Instructions and Ingredient layout
+//		view.findViewById(R.id.ingredient_layout).setVisibility(View.GONE);
+		view.findViewById(R.id.instruction_layout).setVisibility(View.GONE);
+		
+		// Set Instructions layout
 		TextView selDishTypeTitle = (TextView) view.findViewById(R.id.dish_type_title);
 		selDishTypeTitle.setText(Dish.getTypeString(this.selectedDish.getType()));
 		
@@ -76,7 +80,7 @@ public class SummaryView {
 		TextView selDishRecipe = (TextView) view.findViewById(R.id.receipe_desc);
 		selDishRecipe.setText(this.selectedDish.getDescription());
 		
-		// Setup the rest of the view layout
+		//TODO: Set Ingredients layout
 	}
 
 }
