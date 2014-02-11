@@ -22,8 +22,9 @@ public class DinnerModel implements IDinnerModel{
 	 */
 	public DinnerModel(){
 		
+		//!Important! image names under res should NOT contains any file extension, because loading a resource file does not require extension
 		//Adding some example data, you can add more
-		Dish dish1 = new Dish("French toast",Dish.STARTER,"toast.jpg","In a large mixing bowl, beat the eggs. Add the milk, brown sugar and nutmeg; stir well to combine. Soak bread slices in the egg mixture until saturated. Heat a lightly oiled griddle or frying pan over medium high heat. Brown slices on both sides, sprinkle with cinnamon and serve hot.");
+		Dish dish1 = new Dish("French toast",Dish.STARTER,"toast","In a large mixing bowl, beat the eggs. Add the milk, brown sugar and nutmeg; stir well to combine. Soak bread slices in the egg mixture until saturated. Heat a lightly oiled griddle or frying pan over medium high heat. Brown slices on both sides, sprinkle with cinnamon and serve hot.");
 		Ingredient dish1ing1 = new Ingredient("eggs",0.5,"",1);
 		Ingredient dish1ing2 = new Ingredient("milk",30,"ml",6);
 		Ingredient dish1ing3 = new Ingredient("brown sugar",7,"g",1);
@@ -36,7 +37,7 @@ public class DinnerModel implements IDinnerModel{
 		dish1.addIngredient(dish1ing5);
 		dishes.add(dish1);
 		
-		Dish dish2 = new Dish("Meat balls",Dish.MAIN,"meatballs.jpg","Preheat an oven to 400 degrees F (200 degrees C). Place the beef into a mixing bowl, and season with salt, onion, garlic salt, Italian seasoning, oregano, red pepper flakes, hot pepper sauce, and Worcestershire sauce; mix well. Add the milk, Parmesan cheese, and bread crumbs. Mix until evenly blended, then form into 1 1/2-inch meatballs, and place onto a baking sheet. Bake in the preheated oven until no longer pink in the center, 20 to 25 minutes.");
+		Dish dish2 = new Dish("Meat balls",Dish.MAIN,"meatballs","Preheat an oven to 400 degrees F (200 degrees C). Place the beef into a mixing bowl, and season with salt, onion, garlic salt, Italian seasoning, oregano, red pepper flakes, hot pepper sauce, and Worcestershire sauce; mix well. Add the milk, Parmesan cheese, and bread crumbs. Mix until evenly blended, then form into 1 1/2-inch meatballs, and place onto a baking sheet. Bake in the preheated oven until no longer pink in the center, 20 to 25 minutes.");
 		Ingredient dish2ing1 = new Ingredient("extra lean ground beef",115,"g",20);
 		Ingredient dish2ing2 = new Ingredient("sea salt",0.7,"g",3);
 		Ingredient dish2ing3 = new Ingredient("small onion, diced",0.25,"",2);
@@ -61,15 +62,33 @@ public class DinnerModel implements IDinnerModel{
 		dish2.addIngredient(dish2ing11);
 		dishes.add(dish2);
 		
-		Dish dish3 = new Dish("Baked Brie", Dish.STARTER, "bakedbrie.jpg", "Preheat oven to 200deg. Put the brie inside. Close the oven. Bake for 50 minutes.");
+		Dish dish3 = new Dish("Baked Brie", Dish.STARTER, "bakedbrie", "Preheat oven to 200deg. Put the brie inside. Close the oven. Bake for 50 minutes.");
 		dish3.addIngredient(new Ingredient("flour", 1/4, "wheel", 100));
 		dish3.addIngredient(new Ingredient("honey", 4, "tablespoons", 5));
 		this.dishes.add(dish3);
 		
-		Dish dish4 = new Dish("Ice-cream", Dish.DESERT, "icecream.jpg", "Scoop an ice-cream. Add chocholate chips on top.");
+		Dish dish4 = new Dish("Ice-cream", Dish.DESERT, "icecream", "Scoop an ice-cream. Add chocholate chips on top.");
 		dish4.addIngredient(new Ingredient("ice-cream", 1, "scoop", 8));
 		dish4.addIngredient(new Ingredient("chocolate chips", 2, "sprinkle", 5));
 		this.dishes.add(dish4);
+		
+		Dish dish5 = new Dish("Sour Dough", Dish.DESERT, "sourdough", "blabla bla");
+		dish5.addIngredient(new Ingredient("dough", 1, "scoop", 10));
+		dish5.addIngredient(new Ingredient("yogurt", 100, "ml", 5));
+		this.dishes.add(dish5);
+		
+		Dish dish6 = new Dish("French toast",Dish.DESERT,"toast","In a large mixing bowl, beat the eggs. Add the milk, brown sugar and nutmeg; stir well to combine. Soak bread slices in the egg mixture until saturated. Heat a lightly oiled griddle or frying pan over medium high heat. Brown slices on both sides, sprinkle with cinnamon and serve hot.");
+		dish6.addIngredient(new Ingredient("eggs",0.5,"",1));
+		dish6.addIngredient(new Ingredient("milk",30,"ml",6));
+		dish6.addIngredient(new Ingredient("brown sugar",7,"g",1));
+		dish6.addIngredient(new Ingredient("ground nutmeg",0.5,"g",12));
+		dish6.addIngredient(new Ingredient("white bread",2,"slices",2));
+		dishes.add(dish6);
+		
+		Dish dish7 = new Dish("Baked Brie", Dish.DESERT, "bakedbrie", "Preheat oven to 200deg. Put the brie inside. Close the oven. Bake for 50 minutes.");
+		dish7.addIngredient(new Ingredient("flour", 1/4, "wheel", 100));
+		dish7.addIngredient(new Ingredient("honey", 4, "tablespoons", 5));
+		this.dishes.add(dish7);
 	}
 	
 	/**
