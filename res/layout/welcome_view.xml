@@ -21,6 +21,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="38dp"
         android:text="@string/welcome_letter"
-        android:textSize="18sp" />
+        android:textSize="18sp" 
+        android:paddingLeft="10dp"/>
 
 </RelativeLayout>

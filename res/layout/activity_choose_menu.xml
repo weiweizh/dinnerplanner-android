@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical" >
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal" >
@@ -13,7 +13,10 @@
             android:id="@+id/participants"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/number_of_guests" />
+            android:text="@string/number_of_guests"
+            android:layout_marginLeft="5dp"
+            android:paddingTop="10dp"
+          />
 
         <EditText
             android:id="@+id/num_of_guest"
@@ -21,7 +24,8 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="number"
-            android:text="99" >
+            android:text="99" 
+            android:layout_toRightOf="@id/participants">
 
             <requestFocus />
         </EditText>
@@ -30,22 +34,29 @@
             android:id="@+id/total"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/total" />
+            android:text="@string/total" 
+            android:layout_toLeftOf="@+id/total_cost"
+            android:paddingTop="10dp"/>
 
         <TextView
-            android:id="@+id/total_cost"
+            android:id="@id/total_cost"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/total_cost_value"
-            android:textAppearance="?android:attr/textAppearanceMedium" />
+            android:textAppearance="?android:attr/textAppearanceMedium" 
+            android:layout_toLeftOf="@+id/SEK"
+            android:padding="5dp"/>
 
         <TextView
-            android:id="@+id/SEK"
+            android:id="@id/SEK"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/SEK"
-            android:textAppearance="?android:attr/textAppearanceSmall" />
-    </LinearLayout>
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:layout_alignParentRight="true" 
+            android:layout_marginRight="5dp"
+            android:paddingTop="10dp"/>
+    </RelativeLayout>
 
     <TextView
         android:id="@+id/label_chooseMenu"
@@ -60,7 +71,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/starter"
-        android:textAppearance="?android:attr/textAppearanceMedium" />
+        android:textAppearance="?android:attr/textAppearanceMedium" 
+        android:layout_marginLeft="5dp"/>
 
     <HorizontalScrollView
         android:id="@+id/starter_list_container"
@@ -82,7 +94,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/main_course"
-        android:textAppearance="?android:attr/textAppearanceMedium" />
+        android:textAppearance="?android:attr/textAppearanceMedium" 
+        android:layout_marginLeft="5dp"/>
 
     <HorizontalScrollView
         android:id="@+id/main_course_list_container"
@@ -103,7 +116,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/dessert"
-        android:textAppearance="?android:attr/textAppearanceMedium" />
+        android:textAppearance="?android:attr/textAppearanceMedium" 
+        android:layout_marginLeft="5dp"/>
 
     <HorizontalScrollView
         android:id="@+id/dessert_list_container"
@@ -125,6 +139,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="40dp"
+        android:layout_marginBottom="10dp"
         android:text="@string/create_button" />
 
 </LinearLayout>
