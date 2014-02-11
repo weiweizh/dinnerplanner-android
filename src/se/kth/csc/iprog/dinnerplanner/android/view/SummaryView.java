@@ -67,8 +67,8 @@ public class SummaryView {
 		}
 		
 		//TODO:add interaction Temp: toggle below to show / hide Instructions and Ingredient layout
-//		view.findViewById(R.id.ingredient_layout).setVisibility(View.GONE);
-		view.findViewById(R.id.instruction_layout).setVisibility(View.GONE);
+		view.findViewById(R.id.ingredient_layout).setVisibility(View.GONE);
+//		view.findViewById(R.id.instruction_layout).setVisibility(View.GONE);
 		
 		// Set Instructions layout
 		TextView selDishTypeTitle = (TextView) view.findViewById(R.id.dish_type_title);
