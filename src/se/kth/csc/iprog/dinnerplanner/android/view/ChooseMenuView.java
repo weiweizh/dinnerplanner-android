@@ -2,6 +2,9 @@ package se.kth.csc.iprog.dinnerplanner.android.view;
 
 import java.util.HashSet;
 import java.util.Set;
+import java.util.Observer;
+import java.util.Observable;
+
 
 import se.kth.csc.iprog.dinnerplanner.android.R;
 import se.kth.csc.iprog.dinnerplanner.model.DinnerModel;
@@ -13,10 +16,16 @@ import android.widget.TextView;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 
-public class ChooseMenuView {
+public class ChooseMenuView implements Observer {
 
 	View view;
 	DinnerModel model;
+	
+	
+		
+		
+		
+
 
 	public ChooseMenuView(View view, DinnerModel dinnerModel) {
 
@@ -24,6 +33,13 @@ public class ChooseMenuView {
 		this.view = view;
 		this.model = dinnerModel;
 		Context context = this.view.getContext();
+		
+		//register the view to the DinnerModel as an observer
+		dinnerModel.addObserver(this);
+		
+		//TODO: update the change of the number of guests and the total price
+		//update(model, model.numOfGuest );
+		
 
 		//Set num of Guest
 		EditText numOfGuest = (EditText) view.findViewById(R.id.num_of_guest);
@@ -53,4 +69,30 @@ public class ChooseMenuView {
 		}
 	}
 
+
+
+
+
+
+//implement update in ChooseMenuView
+
+	public void update(Observable observable, Object changedItem) {
+		// TODO Auto-generated method stub
+		if (observable instanceof DinnerModel){
+		  if ( changedItem.equals(new String("numOfGuest"))){ 
+			 EditText numOfGuest = (EditText) view.findViewById(R.id.num_of_guest);
+		      numOfGuest.setText(String.valueOf(((DinnerModel) observable).getNumberOfGuests()));
+		      
+		      TextView totalCost = (TextView) view.findViewById(R.id.total_cost);	
+				totalCost.setText(String.valueOf(((DinnerModel)observable).getTotalMenuPrice()));}
+	      }
+	   }
+
 }
+
+
+
+
+
+
+	 

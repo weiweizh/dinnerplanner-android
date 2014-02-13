@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal" >
+     <TextView
+            android:id="@id/total"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/total" 
+            android:paddingTop="10dp"/>
+
+        <TextView
+            android:id="@id/total_cost"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/total_cost_value"
+            android:textAppearance="?android:attr/textAppearanceMedium" 
+            android:padding="5dp"/>
+
+        <TextView
+            android:id="@id/SEK"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/SEK"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:paddingTop="10dp" />  
+
+</LinearLayout>

@@ -1,14 +1,18 @@
 package se.kth.csc.iprog.dinnerplanner.model;
 
+
 import java.util.HashSet;
 import java.util.Set;
+import java.util.Observable;
 
-public class DinnerModel implements IDinnerModel{
+ 
+public class DinnerModel extends Observable implements IDinnerModel{
 	
 
 	Set<Dish> dishes = new HashSet<Dish>();
 	Set<Dish> selectedDishes = new HashSet<Dish>();
 	int numOfGuest = 0;
+	Object changedItem;
 	
 	/**
 	 * TODO: For Lab2 you need to implement the IDinnerModel interface.
@@ -139,6 +143,9 @@ public class DinnerModel implements IDinnerModel{
 	}
 	public void setNumberOfGuests(int numberOfGuests){
 		this.numOfGuest = numberOfGuests;
+		this.setChanged();
+		changedItem = "numOfGuest";
+		this.notifyObservers(changedItem);
 	}
 	
 	/**
@@ -196,7 +203,7 @@ public class DinnerModel implements IDinnerModel{
 				totalPrice += eachIngredient.getPrice();
 			}			
 		}
-		return totalPrice*this.numOfGuest;
+ 		return totalPrice*this.numOfGuest;
 	}
 	
 	
