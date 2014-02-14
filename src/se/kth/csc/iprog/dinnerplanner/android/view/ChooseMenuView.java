@@ -5,7 +5,6 @@ import java.util.Set;
 import java.util.Observer;
 import java.util.Observable;
 
-
 import se.kth.csc.iprog.dinnerplanner.android.R;
 import se.kth.csc.iprog.dinnerplanner.model.DinnerModel;
 import se.kth.csc.iprog.dinnerplanner.model.Dish;
@@ -20,12 +19,9 @@ public class ChooseMenuView implements Observer {
 
 	View view;
 	DinnerModel model;
-	
-	
-		
-		
-		
 
+	EditText numOfGuestEditText;
+	TextView totalCostLabel;
 
 	public ChooseMenuView(View view, DinnerModel dinnerModel) {
 
@@ -33,66 +29,52 @@ public class ChooseMenuView implements Observer {
 		this.view = view;
 		this.model = dinnerModel;
 		Context context = this.view.getContext();
-		
-		//register the view to the DinnerModel as an observer
+
+		// register the view to the DinnerModel as an observer
 		dinnerModel.addObserver(this);
-		
-		//TODO: update the change of the number of guests and the total price
-		//update(model, model.numOfGuest );
-		
 
-		//Set num of Guest
-		EditText numOfGuest = (EditText) view.findViewById(R.id.num_of_guest);
-		numOfGuest.setText(String.valueOf(this.model.getNumberOfGuests()));
-		
-		//Set total cost
-		TextView totalCost = (TextView) view.findViewById(R.id.total_cost);	
-		totalCost.setText(String.valueOf(this.model.getTotalMenuPrice()));
+		// TODO: update the change of the number of guests and the total price
+		// update(model, model.numOfGuest );
 
-		//Add dishes to Starter/ Main/ Dessert list accordingly
+		// Set num of Guest
+		this.numOfGuestEditText = (EditText) view.findViewById(R.id.num_of_guest);
+		this.numOfGuestEditText.setText(String.valueOf(this.model.getNumberOfGuests()));
+
+		// Set total cost
+		this.totalCostLabel = (TextView) view.findViewById(R.id.total_cost);
+		this.totalCostLabel.setText(String.valueOf(this.model.getTotalMenuPrice()));
+
+		// Add dishes to Starter/ Main/ Dessert list accordingly
 		LinearLayout starterList = (LinearLayout) view.findViewById(R.id.starter_list);
 		LinearLayout mainCourseList = (LinearLayout) view.findViewById(R.id.main_course_list);
 		LinearLayout dessertList = (LinearLayout) view.findViewById(R.id.dessert_list);
 
 		Set<Dish> allDishes = dinnerModel.getDishes();
-		for(Dish d : allDishes){
-			if(d.getType() == Dish.STARTER){
+		for (Dish d : allDishes) {
+			if (d.getType() == Dish.STARTER) {
 				DishItemView dishView = new DishItemView(context, d);
 				starterList.addView(dishView);
-			}else if(d.getType() == Dish.MAIN){
+			} else if (d.getType() == Dish.MAIN) {
 				DishItemView dishView = new DishItemView(context, d);
 				mainCourseList.addView(dishView);
-			}else if(d.getType() == Dish.DESERT){
+			} else if (d.getType() == Dish.DESERT) {
 				DishItemView dishView = new DishItemView(context, d);
 				dessertList.addView(dishView);
 			}
 		}
 	}
 
-
-
-
-
-
-//implement update in ChooseMenuView
+	// implement update in ChooseMenuView
 
 	public void update(Observable observable, Object changedItem) {
 		// TODO Auto-generated method stub
-		if (observable instanceof DinnerModel){
-		  if ( changedItem.equals(new String("numOfGuest"))){ 
-			 EditText numOfGuest = (EditText) view.findViewById(R.id.num_of_guest);
-		      numOfGuest.setText(String.valueOf(((DinnerModel) observable).getNumberOfGuests()));
-		      
-		      TextView totalCost = (TextView) view.findViewById(R.id.total_cost);	
-				totalCost.setText(String.valueOf(((DinnerModel)observable).getTotalMenuPrice()));}
-	      }
-	   }
+		if (observable instanceof DinnerModel) {
+			DinnerModel model = (DinnerModel) observable;
+			if (changedItem == DinnerModel.ChangedDataType.NUM_OF_GUEST) {
+				this.numOfGuestEditText.setText(String.valueOf(model.getNumberOfGuests()));
+				this.totalCostLabel.setText(String.valueOf(model.getTotalMenuPrice()));
+			}
+		}
+	}
 
 }
-
-
-
-
-
-
-	 

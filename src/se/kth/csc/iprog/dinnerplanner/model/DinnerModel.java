@@ -14,6 +14,10 @@ public class DinnerModel extends Observable implements IDinnerModel{
 	int numOfGuest = 0;
 	Object changedItem;
 	
+	public enum ChangedDataType{
+		NUM_OF_GUEST, SELECTED_DISH
+	}
+	
 	/**
 	 * TODO: For Lab2 you need to implement the IDinnerModel interface.
 	 * When you do this you will have all the needed fields and methods
@@ -144,7 +148,8 @@ public class DinnerModel extends Observable implements IDinnerModel{
 	public void setNumberOfGuests(int numberOfGuests){
 		this.numOfGuest = numberOfGuests;
 		this.setChanged();
-		changedItem = "numOfGuest";
+//		changedItem = "numOfGuest";
+		this.changedItem = ChangedDataType.NUM_OF_GUEST;
 		this.notifyObservers(changedItem);
 	}
 	
