@@ -2,6 +2,8 @@ package se.kth.csc.iprog.dinnerplanner.android;
 
 import se.kth.csc.iprog.dinnerplanner.android.view.ChooseMenuView;
 import se.kth.csc.iprog.dinnerplanner.model.DinnerModel;
+import se.kth.csc.iprog.dinnerplanner.android.view.ChooseMenuViewController;
+
 import android.os.Bundle;
 import android.app.Activity;
 import android.view.Menu;
@@ -16,6 +18,8 @@ public class ChooseMenuActivity extends Activity {
 		DinnerModel model = ((DinnerPlannerApplication) this.getApplication()).getModel();
 		
 		ChooseMenuView mainView = new ChooseMenuView(findViewById(R.id.activity_choose_menu_id), model);
+		
+		ChooseMenuViewController viewController = new ChooseMenuViewController(model, mainView);
 	}
 
 	@Override

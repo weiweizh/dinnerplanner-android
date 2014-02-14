@@ -4,6 +4,7 @@ import java.util.HashSet;
 import java.util.Set;
 import java.util.Observer;
 import java.util.Observable;
+import java.lang.Integer;
 
 import se.kth.csc.iprog.dinnerplanner.android.R;
 import se.kth.csc.iprog.dinnerplanner.model.DinnerModel;
@@ -39,6 +40,7 @@ public class ChooseMenuView implements Observer {
 		// Set num of Guest
 		this.numOfGuestEditText = (EditText) view.findViewById(R.id.num_of_guest);
 		this.numOfGuestEditText.setText(String.valueOf(this.model.getNumberOfGuests()));
+		
 
 		// Set total cost
 		this.totalCostLabel = (TextView) view.findViewById(R.id.total_cost);
@@ -65,15 +67,20 @@ public class ChooseMenuView implements Observer {
 	}
 
 	// implement update in ChooseMenuView
-
 	public void update(Observable observable, Object changedItem) {
-		// TODO Auto-generated method stub
 		if (observable instanceof DinnerModel) {
 			DinnerModel model = (DinnerModel) observable;
 			if (changedItem == DinnerModel.ChangedDataType.NUM_OF_GUEST) {
-				this.numOfGuestEditText.setText(String.valueOf(model.getNumberOfGuests()));
+//				this.numOfGuestEditText.setText(String.valueOf(model.getNumberOfGuests()));
+				
 				this.totalCostLabel.setText(String.valueOf(model.getTotalMenuPrice()));
+			}else if(changedItem == DinnerModel.ChangedDataType.SELECTED_DISH){
+				//TODO: hightlight selected dishes
+				
 			}
+			
+			
+			
 		}
 	}
 

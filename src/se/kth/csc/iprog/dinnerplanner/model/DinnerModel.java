@@ -7,22 +7,14 @@ import java.util.Observable;
 
  
 public class DinnerModel extends Observable implements IDinnerModel{
-	
+	public enum ChangedDataType{
+		NUM_OF_GUEST, SELECTED_DISH
+	}
 
 	Set<Dish> dishes = new HashSet<Dish>();
 	Set<Dish> selectedDishes = new HashSet<Dish>();
 	int numOfGuest = 0;
 	Object changedItem;
-	
-	public enum ChangedDataType{
-		NUM_OF_GUEST, SELECTED_DISH
-	}
-	
-	/**
-	 * TODO: For Lab2 you need to implement the IDinnerModel interface.
-	 * When you do this you will have all the needed fields and methods
-	 * for the dinner planner (number of guests, selected dishes, etc.). 
-	 */
 	
 	
 	/**
