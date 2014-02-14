@@ -3,7 +3,10 @@ package se.kth.csc.iprog.dinnerplanner.android;
 import se.kth.csc.iprog.dinnerplanner.android.view.WelcomeView;
 import se.kth.csc.iprog.dinnerplanner.model.DinnerModel;
 import android.os.Bundle;
+import android.view.View;
 import android.app.Activity;
+import android.content.Context;
+import android.content.Intent;
 
 public class MainActivity extends Activity {
 
@@ -23,5 +26,15 @@ public class MainActivity extends Activity {
     	WelcomeView mainView = new WelcomeView(findViewById(R.id.activity_main_id));
 
     }
+    
+    public void startChoose(View view) {
+		   
+			  Intent intent;
+			  
+			  intent = new Intent(this,ChooseMenuActivity.class);
+			  startActivity(intent);
+		  } 
+    
+    
 
 }
