@@ -9,7 +9,7 @@ Then select your courses.\nWatch Magic Happen!</string>
     <string name="hello_world">Hello world!</string>
     <string name="number_of_guests">Participants</string>
     <string name="total">Total Cost         </string>
-    <string name="menu">Choose Menu</string>
+    <string name="menu">Customize your menu</string>
     <string name="starter">Starter</string>
     <string name="main">main</string>
     <string name="title_activity_choose_menu">ChooseMenuActivity</string>

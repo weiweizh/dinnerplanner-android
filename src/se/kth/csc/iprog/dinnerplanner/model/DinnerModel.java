@@ -85,10 +85,55 @@ public class DinnerModel extends Observable implements IDinnerModel{
 		dish6.addIngredient(new Ingredient("white bread",2,"slices",2));
 		dishes.add(dish6);
 		
-		Dish dish7 = new Dish("Baked Brie", Dish.DESERT, "bakedbrie", "Preheat oven to 200deg. Put the brie inside. Close the oven. Bake for 50 minutes.");
+		Dish dish7 = new Dish("temp", Dish.DESERT, "bakedbrie", "Preheat oven to 200deg. Put the brie inside. Close the oven. Bake for 50 minutes.");
 		dish7.addIngredient(new Ingredient("flour", 1/4, "wheel", 100));
 		dish7.addIngredient(new Ingredient("honey", 4, "tablespoons", 5));
 		this.dishes.add(dish7);
+		
+		Dish dish8 = new Dish("Bruschetta", Dish.STARTER, "bruschetta", "Preheat oven to 200deg. Put the brie inside. Close the oven. Bake for 50 minutes.");
+		dish8.addIngredient(new Ingredient("flour", 1/4, "wheel", 100));
+		dish8.addIngredient(new Ingredient("honey", 4, "tablespoons", 5));
+		this.dishes.add(dish8);
+		
+		Dish dish9 = new Dish("Crab salad", Dish.STARTER, "crabsalad", "Preheat oven to 200deg. Put the brie inside. Close the oven. Bake for 50 minutes.");
+		dish9.addIngredient(new Ingredient("flour", 1/4, "wheel", 100));
+		dish9.addIngredient(new Ingredient("honey", 4, "tablespoons", 5));
+		this.dishes.add(dish9);
+		
+		Dish dish10 = new Dish("Garlic bread", Dish.STARTER, "garlicbread", "Preheat oven to 200deg. Put the brie inside. Close the oven. Bake for 50 minutes.");
+		dish10.addIngredient(new Ingredient("flour", 1/4, "wheel", 100));
+		dish10.addIngredient(new Ingredient("honey", 4, "tablespoons", 5));
+		this.dishes.add(dish10);
+		
+		Dish dish11 = new Dish("Key lime pie", Dish.DESERT, "keylimepie", "Preheat oven to 200deg. Put the brie inside. Close the oven. Bake for 50 minutes.");
+		dish11.addIngredient(new Ingredient("flour", 1/4, "wheel", 100));
+		dish11.addIngredient(new Ingredient("honey", 4, "tablespoons", 5));
+		this.dishes.add(dish11);
+		
+		Dish dish12 = new Dish("Quesadilla", Dish.MAIN, "quesadilla", "Preheat oven to 200deg. Put the brie inside. Close the oven. Bake for 50 minutes.");
+		dish12.addIngredient(new Ingredient("flour", 1/4, "wheel", 100));
+		dish12.addIngredient(new Ingredient("honey", 4, "tablespoons", 5));
+		this.dishes.add(dish12);
+		
+		Dish dish13 = new Dish("Risotto", Dish.MAIN, "risotto", "Preheat oven to 200deg. Put the brie inside. Close the oven. Bake for 50 minutes.");
+		dish13.addIngredient(new Ingredient("flour", 1/4, "wheel", 100));
+		dish13.addIngredient(new Ingredient("honey", 4, "tablespoons", 5));
+		this.dishes.add(dish13);
+		
+		Dish dish14 = new Dish("Sour sea food", Dish.MAIN, "sourseafood", "Preheat oven to 200deg. Put the brie inside. Close the oven. Bake for 50 minutes.");
+		dish14.addIngredient(new Ingredient("flour", 1/4, "wheel", 100));
+		dish14.addIngredient(new Ingredient("honey", 4, "tablespoons", 5));
+		this.dishes.add(dish14);
+
+		Dish dish15 = new Dish("Spring rolls", Dish.MAIN, "springrolls", "Preheat oven to 200deg. Put the brie inside. Close the oven. Bake for 50 minutes.");
+		dish15.addIngredient(new Ingredient("flour", 1/4, "wheel", 100));
+		dish15.addIngredient(new Ingredient("honey", 4, "tablespoons", 5));
+		this.dishes.add(dish15);
+		
+		Dish dish16 = new Dish("Spring soup", Dish.STARTER, "springsoup", "Preheat oven to 200deg. Put the brie inside. Close the oven. Bake for 50 minutes.");
+		dish16.addIngredient(new Ingredient("flour", 1/4, "wheel", 100));
+		dish16.addIngredient(new Ingredient("honey", 4, "tablespoons", 5));
+		this.dishes.add(dish16);
 		
 		//**TEMP for Lab1** select some default dishes for display//
 		this.selectDish(dish1);
