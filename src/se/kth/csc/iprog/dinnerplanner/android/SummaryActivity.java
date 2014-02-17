@@ -1,11 +1,14 @@
 package se.kth.csc.iprog.dinnerplanner.android;
 
+
 import se.kth.csc.iprog.dinnerplanner.android.view.ChooseMenuView;
 import se.kth.csc.iprog.dinnerplanner.android.view.SummaryView;
 import se.kth.csc.iprog.dinnerplanner.model.DinnerModel;
 import android.os.Bundle;
 import android.app.Activity;
+import android.content.Intent;
 import android.view.Menu;
+import android.view.View;
 import se.kth.csc.iprog.dinnerplanner.android.R;
 
 public class SummaryActivity extends Activity {
@@ -27,5 +30,14 @@ public class SummaryActivity extends Activity {
 		getMenuInflater().inflate(R.menu.summary, menu);
 		return true;
 	}
+	
+	public void backToChooseMenu(View view) {
+		   
+		  Intent intent;
+		  
+		  intent = new Intent(this, ChooseMenuActivity.class);
+		  startActivity(intent);
+	  } 
+	
 
 }

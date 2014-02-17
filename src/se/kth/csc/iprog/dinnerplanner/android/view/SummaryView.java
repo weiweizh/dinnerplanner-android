@@ -2,12 +2,14 @@ package se.kth.csc.iprog.dinnerplanner.android.view;
 
 import java.util.Set;
 
+import se.kth.csc.iprog.dinnerplanner.android.ChooseMenuActivity;
 import se.kth.csc.iprog.dinnerplanner.android.DinnerPlannerApplication;
 import se.kth.csc.iprog.dinnerplanner.android.R;
 import se.kth.csc.iprog.dinnerplanner.model.DinnerModel;
 import se.kth.csc.iprog.dinnerplanner.model.Dish;
 import android.net.Uri;
 import android.content.Context;
+import android.content.Intent;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.ImageView;
@@ -87,5 +89,7 @@ public class SummaryView {
 		
 		//TODO: Set Ingredients layout
 	}
+	
+	
 
 }

@@ -6,7 +6,9 @@ import se.kth.csc.iprog.dinnerplanner.android.view.ChooseMenuViewController;
 
 import android.os.Bundle;
 import android.app.Activity;
+import android.content.Intent;
 import android.view.Menu;
+import android.view.View;
 
 public class ChooseMenuActivity extends Activity {
 
@@ -28,5 +30,16 @@ public class ChooseMenuActivity extends Activity {
 		getMenuInflater().inflate(R.menu.choose_menu, menu);
 		return true;
 	}
+
+
+
+//create function to jump to the next page
+public void createMenu(View view) {
+	   
+	  Intent intent;
+	  
+	  intent = new Intent(this,SummaryActivity.class);
+	  startActivity(intent);
+} 
 
 }

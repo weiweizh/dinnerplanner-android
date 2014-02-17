@@ -5,12 +5,13 @@
     android:layout_height="fill_parent" 
     android:orientation="vertical" >
 
-    <ImageView
+    <ImageButton
         android:id="@+id/dish_item_image"
         android:layout_width="93dp"
         android:layout_height="58dp"
         android:layout_margin="10dp"
-        android:src="@drawable/bakedbrie" />
+        android:src="@drawable/bakedbrie" 
+        android:onClick="selectDish"/>
 
     <TextView
         android:id="@+id/dish_item_caption"
