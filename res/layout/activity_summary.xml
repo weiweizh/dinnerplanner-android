@@ -88,48 +88,48 @@
             android:scaleType="fitXY"
             android:src="@drawable/ingredients" />
 
-        <ImageView
-            android:id="@+id/imageDish1"
+        <ImageButton
+            android:id="@+id/btn_dish1"
             android:layout_width="64dp"
             android:layout_height="64dp"
-            android:scaleType="centerCrop"
             android:layout_marginLeft="30dp"
-            android:padding="5dp"
+            android:layout_toRightOf="@id/btn_ingredient"
             android:contentDescription="@string/desc"
-            android:src="@drawable/meatballs" 
-            android:layout_toRightOf="@id/btn_ingredient"/>
+            android:padding="5dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/meatballs" />
 
-        <ImageView
-            android:id="@+id/imageDish2"
+        <ImageButton
+            android:id="@+id/btn_dish2"
             android:layout_width="64dp"
             android:layout_height="64dp"
-            android:scaleType="centerCrop"
             android:layout_marginLeft="15dp"
-            android:padding="5dp"
+            android:layout_toRightOf="@id/btn_dish1"
             android:contentDescription="@string/desc"
-            android:src="@drawable/toast" 
-            android:layout_toRightOf="@id/imageDish1"/>
+            android:padding="5dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/toast" />
 
-        <ImageView
-            android:id="@+id/imageDish3"
+        <ImageButton
+            android:id="@+id/btn_dish3"
             android:layout_width="64dp"
             android:layout_height="64dp"
-            android:scaleType="centerCrop"
             android:layout_marginLeft="15dp"
-            android:padding="5dp"
+            android:layout_toRightOf="@id/btn_dish2"
             android:contentDescription="@string/desc"
-            android:src="@drawable/icecream" 
-            android:layout_toRightOf="@id/imageDish2"/>
+            android:padding="5dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/icecream" />
         
          <TextView
             android:id="@+id/dish1_caption"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignLeft="@id/imageDish1"
+            android:layout_alignLeft="@id/btn_dish1"
             android:layout_marginLeft="-5dp"
             android:text="@string/disk1"
             android:textAppearance="?android:attr/textAppearanceSmall" 
-            android:layout_below="@id/imageDish1"/>
+            android:layout_below="@id/btn_dish1"/>
 
         <TextView
             android:id="@+id/dish2_caption"
@@ -139,7 +139,7 @@
             android:layout_marginLeft="10dp"
             android:text="@string/disk2"
             android:textAppearance="?android:attr/textAppearanceSmall" 
-            android:layout_below="@id/imageDish2"/>
+            android:layout_below="@id/btn_dish2"/>
 
         <TextView
             android:id="@+id/dish3_caption"
@@ -150,7 +150,7 @@
             android:layout_marginLeft="10dp"
             android:text="@string/disk3"
             android:textAppearance="?android:attr/textAppearanceSmall" 
-            android:layout_below="@id/imageDish3"/>
+            android:layout_below="@id/btn_dish3"/>
 
 
     </RelativeLayout>

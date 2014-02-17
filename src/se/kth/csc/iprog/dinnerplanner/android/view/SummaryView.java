@@ -23,16 +23,18 @@ public class SummaryView{
 
 	View view;
 	DinnerModel model;
-	Dish selectedDish = null;
+	int selectedDishType = 0;
 	
 	// android view objects
 	View ingredientView = null;
 	View instructionView = null;
 	ImageButton ingredientBtn = null;
+	ImageButton dish1Btn = null;
+	ImageButton dish2Btn = null;
+	ImageButton dish3Btn = null;
 	TableLayout ingredientTable = null;
 
 	public SummaryView(View view, DinnerModel dinnerModel){
-
 		//Init all member vars
 		// store in the class the reference to the Android View
 		this.view = view;
@@ -41,6 +43,9 @@ public class SummaryView{
 		this.ingredientView = view.findViewById(R.id.ingredient_layout);
 		this.instructionView = view.findViewById(R.id.instruction_layout);
 		this.ingredientBtn = (ImageButton) this.view.findViewById(R.id.btn_ingredient);
+		this.dish1Btn = (ImageButton) this.view.findViewById(R.id.btn_dish1);
+		this.dish2Btn = (ImageButton) this.view.findViewById(R.id.btn_dish2);
+		this.dish3Btn = (ImageButton) this.view.findViewById(R.id.btn_dish3);
 		
 		//Init all local vars
 		Context context = this.view.getContext();
@@ -49,24 +54,19 @@ public class SummaryView{
 		TextView totalCost = (TextView) view.findViewById(R.id.total_cost);	
 		totalCost.setText(String.valueOf(this.model.getTotalMenuPrice()));
 
-
 		//Set Ingredients layout
 		this.ingredientTable = (TableLayout) view.findViewById(R.id.tableIngredients);
 		this.ingredientTable.removeAllViews();
 		
 		//Set the selected dish imageView
-		ImageView dishImage1 = (ImageView) this.view.findViewById(R.id.imageDish1);
-		ImageView dishImage2 = (ImageView) this.view.findViewById(R.id.imageDish2);
-		ImageView dishImage3 = (ImageView) this.view.findViewById(R.id.imageDish3);
-
 		TextView dishCaption1 = (TextView) view.findViewById(R.id.dish1_caption);
 		TextView dishCaption2 = (TextView) view.findViewById(R.id.dish2_caption);
 		TextView dishCaption3 = (TextView) view.findViewById(R.id.dish3_caption);
 		
 		//	reset all images
-		dishImage1.setImageDrawable(null);
-		dishImage2.setImageDrawable(null);
-		dishImage3.setImageDrawable(null);
+		this.dish1Btn.setImageDrawable(null);
+		this.dish2Btn.setImageDrawable(null);
+		this.dish3Btn.setImageDrawable(null);
 
 		//  get selected dishes
 		Set<Dish> selectedDishes = dinnerModel.getFullMenu();
@@ -75,23 +75,24 @@ public class SummaryView{
 		Iterator<Dish> itDish = selectedDishes.iterator();
 		while(itDish.hasNext()){
 			Dish d = itDish.next();
-			//***temp*** select a dish here
-			this.selectedDish = d;
-			//***temp end***
+			
+			// select the first looped dish by default
+			if(this.selectedDishType == 0){
+				this.selectedDishType = d.getType();
+			}
 			
 			if(d.getType() == Dish.STARTER){
-				dishImage1.setImageResource(DinnerPlannerApplication.getImageResId(context, d.getImage()));
+				this.dish1Btn.setImageResource(DinnerPlannerApplication.getImageResId(context, d.getImage()));
 				dishCaption1.setText(d.getName());
 			}else if(d.getType() == Dish.MAIN){
-				dishImage2.setImageResource(DinnerPlannerApplication.getImageResId(context, d.getImage()));
+				this.dish2Btn.setImageResource(DinnerPlannerApplication.getImageResId(context, d.getImage()));
 				dishCaption2.setText(d.getName());
 			}else if(d.getType() == Dish.DESERT){
-				dishImage3.setImageResource(DinnerPlannerApplication.getImageResId(context, d.getImage()));
+				this.dish3Btn.setImageResource(DinnerPlannerApplication.getImageResId(context, d.getImage()));
 				dishCaption3.setText(d.getName());
 			}
 			
 			// also add ingredients to ingredientTable
-
 			Iterator<Ingredient> itIngre = d.getIngredients().iterator();
 			while(itIngre.hasNext()){
 				Ingredient ingre = itIngre.next();
@@ -116,22 +117,25 @@ public class SummaryView{
 		}
 
 		//show ingredientView by default
-		this.ingredientView.setVisibility(View.GONE);
-//		this.instructionView.setVisibility(View.GONE);
+		this.ingredientView.setVisibility(View.VISIBLE);
+		this.instructionView.setVisibility(View.GONE);
+		
+//		this.updateIntruction();
+		
+	}
+	
+	public void showDishByType(int dishType){
+		Dish targetDish = this.model.getSelectedDish(dishType);
 		
 		// Set Instructions layout
 		TextView selDishTypeTitle = (TextView) view.findViewById(R.id.dish_type_title);
-		selDishTypeTitle.setText(Dish.getTypeString(this.selectedDish.getType()));
-		
+		selDishTypeTitle.setText(Dish.getTypeString(targetDish.getType()));
+				
 		TextView selDishTitle = (TextView) view.findViewById(R.id.dish_name_title);
-		selDishTitle.setText(this.selectedDish.getName());
-		
+		selDishTitle.setText(targetDish.getName());
+				
 		TextView selDishRecipe = (TextView) view.findViewById(R.id.receipe_desc);
-		selDishRecipe.setText(this.selectedDish.getDescription());
-		
-		
-		
-		
+		selDishRecipe.setText(targetDish.getDescription());	
 	}
 
 }
