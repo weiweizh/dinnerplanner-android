@@ -78,29 +78,32 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content" >
 
-        <ImageView
-            android:id="@+id/imageIngredient"
+        <ImageButton
+            android:id="@+id/btn_ingredient"
             android:layout_width="64dp"
             android:layout_height="64dp"
+            android:contentDescription="@string/desc"
             android:padding="5dp"
             android:paddingRight="20dp"
-            android:contentDescription="@string/desc"
-            android:src="@drawable/sourdough"/>
+            android:scaleType="fitXY"
+            android:src="@drawable/ingredients" />
 
         <ImageView
             android:id="@+id/imageDish1"
             android:layout_width="64dp"
             android:layout_height="64dp"
+            android:scaleType="centerCrop"
             android:layout_marginLeft="30dp"
             android:padding="5dp"
             android:contentDescription="@string/desc"
             android:src="@drawable/meatballs" 
-            android:layout_toRightOf="@id/imageIngredient"/>
+            android:layout_toRightOf="@id/btn_ingredient"/>
 
         <ImageView
             android:id="@+id/imageDish2"
             android:layout_width="64dp"
             android:layout_height="64dp"
+            android:scaleType="centerCrop"
             android:layout_marginLeft="15dp"
             android:padding="5dp"
             android:contentDescription="@string/desc"
@@ -111,6 +114,7 @@
             android:id="@+id/imageDish3"
             android:layout_width="64dp"
             android:layout_height="64dp"
+            android:scaleType="centerCrop"
             android:layout_marginLeft="15dp"
             android:padding="5dp"
             android:contentDescription="@string/desc"
@@ -147,6 +151,7 @@
             android:text="@string/disk3"
             android:textAppearance="?android:attr/textAppearanceSmall" 
             android:layout_below="@id/imageDish3"/>
+
 
     </RelativeLayout>
 

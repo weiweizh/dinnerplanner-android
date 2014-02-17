@@ -7,27 +7,37 @@ import se.kth.csc.iprog.dinnerplanner.android.DinnerPlannerApplication;
 import se.kth.csc.iprog.dinnerplanner.android.R;
 import se.kth.csc.iprog.dinnerplanner.model.DinnerModel;
 import se.kth.csc.iprog.dinnerplanner.model.Dish;
-import android.net.Uri;
+import android.util.Log;
 import android.content.Context;
 import android.content.Intent;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.ImageView;
+import android.widget.ImageButton;
+import android.view.View.OnClickListener;
 
 import android.util.Log;
 
-public class SummaryView {
+public class SummaryView{
 
 	View view;
 	DinnerModel model;
-	
 	Dish selectedDish = null;
+	
+	// android view objects
+	View ingredientView = null;
+	View instructionView = null;
+	ImageButton ingredientBtn = null;
 
-	public SummaryView(View view, DinnerModel dinnerModel) {
+	public SummaryView(View view, DinnerModel dinnerModel){
 
 		// store in the class the reference to the Android View
 		this.view = view;
 		this.model = dinnerModel;
+		
+		this.ingredientView = view.findViewById(R.id.ingredient_layout);
+		this.instructionView = view.findViewById(R.id.instruction_layout);
+		this.ingredientBtn = (ImageButton) this.view.findViewById(R.id.btn_ingredient);
 		
 		Context context = this.view.getContext();
 
@@ -57,25 +67,21 @@ public class SummaryView {
 			this.selectedDish = d;
 			//***temp end***
 			
-//			Uri uri = Uri.parse("android.resource://se.kth.csc.iprog.dinnerplanner.android/drawable/" + d.getImage());
 			if(d.getType() == Dish.STARTER){
-//				dishImage1.setImageURI(uri);
 				dishImage1.setImageResource(DinnerPlannerApplication.getImageResId(context, d.getImage()));
 				dishCaption1.setText(d.getName());
 			}else if(d.getType() == Dish.MAIN){
-//				dishImage2.setImageURI(uri);
 				dishImage2.setImageResource(DinnerPlannerApplication.getImageResId(context, d.getImage()));
 				dishCaption2.setText(d.getName());
 			}else if(d.getType() == Dish.DESERT){
-//				dishImage3.setImageURI(uri);
 				dishImage3.setImageResource(DinnerPlannerApplication.getImageResId(context, d.getImage()));
 				dishCaption3.setText(d.getName());
 			}
 		}
-		
-		//TODO:add interaction Temp: toggle below to show / hide Instructions and Ingredient layout
-		view.findViewById(R.id.ingredient_layout).setVisibility(View.GONE);
-//		view.findViewById(R.id.instruction_layout).setVisibility(View.GONE);
+
+		//show ingredientView by default
+		this.ingredientView.setVisibility(View.GONE);
+//		this.instructionView.setVisibility(View.GONE);
 		
 		// Set Instructions layout
 		TextView selDishTypeTitle = (TextView) view.findViewById(R.id.dish_type_title);
@@ -89,7 +95,5 @@ public class SummaryView {
 		
 		//TODO: Set Ingredients layout
 	}
-	
-	
 
 }

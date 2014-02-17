@@ -3,6 +3,7 @@ package se.kth.csc.iprog.dinnerplanner.android;
 
 import se.kth.csc.iprog.dinnerplanner.android.view.ChooseMenuView;
 import se.kth.csc.iprog.dinnerplanner.android.view.SummaryView;
+import se.kth.csc.iprog.dinnerplanner.android.view.SummaryViewController;
 import se.kth.csc.iprog.dinnerplanner.model.DinnerModel;
 import android.os.Bundle;
 import android.app.Activity;
@@ -21,6 +22,8 @@ public class SummaryActivity extends Activity {
 		DinnerModel model = ((DinnerPlannerApplication) this.getApplication()).getModel();
 		
 		SummaryView mainView = new SummaryView(findViewById(R.id.activity_summary_id), model);
+		
+		SummaryViewController viewController = new SummaryViewController(model, mainView);
 		
 	}
 
