@@ -12,6 +12,7 @@ import android.view.View;
 
 public class ChooseMenuActivity extends Activity {
 
+	ChooseMenuView mainView;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -19,7 +20,7 @@ public class ChooseMenuActivity extends Activity {
 		
 		DinnerModel model = ((DinnerPlannerApplication) this.getApplication()).getModel();
 		
-		ChooseMenuView mainView = new ChooseMenuView(findViewById(R.id.activity_choose_menu_id), model);
+		mainView = new ChooseMenuView(findViewById(R.id.activity_choose_menu_id), model);
 		
 		ChooseMenuViewController viewController = new ChooseMenuViewController(model, mainView);
 	}
@@ -33,13 +34,20 @@ public class ChooseMenuActivity extends Activity {
 
 
 
-//create function to jump to the next page
-public void createMenu(View view) {
+    //create function to jump to the next page
+       public void createMenu(View view) {
+    	   
+    	   
 	   
-	  Intent intent;
+	   Intent intent;
 	  
-	  intent = new Intent(this,SummaryActivity.class);
-	  startActivity(intent);
+	   intent = new Intent(this,SummaryActivity.class);
+	   startActivity(intent);
 } 
+      
+      public void closeWindow(View view){
+    	  mainView.pressedDishWindow.dismiss();
+      } 
+       
 
 }

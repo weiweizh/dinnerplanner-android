@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" 
+    android:background="@android:color/background_light">
+
+    <TextView
+        android:id="@+id/dishCost"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/popupDishImage"
+        android:layout_below="@+id/popupDishImage"
+        android:layout_marginTop="27dp"
+        android:text="Cost:"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <TextView
+        android:id="@+id/Kr"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/oneDishCostTotal"
+        android:layout_alignBottom="@+id/oneDishCostTotal"
+        android:layout_marginLeft="22dp"
+        android:layout_toRightOf="@+id/oneDishCostTotal"
+        android:text="Kr"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <TextView
+        android:id="@+id/oneDishCostPerP"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/dishCost"
+        android:layout_below="@+id/dishCost"
+        android:layout_marginTop="16dp"
+        android:text="250"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <Button
+        android:id="@+id/close_button"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignRight="@+id/popupDishImage"
+        android:onClick="closeWindow"
+        android:text="X" />
+
+    <ImageView
+        android:id="@+id/popupDishImage"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@id/dish_item_caption"
+        android:layout_marginLeft="19dp"
+        android:src="@drawable/bruschetta" />
+
+    <TextView
+        android:id="@+id/oneDishCostTotal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/oneDishCostPerP"
+        android:layout_marginRight="35dp"
+        android:layout_toLeftOf="@+id/close_button"
+        android:text="1250"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <TextView
+        android:id="@+id/KrPerP"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/oneDishCostPerP"
+        android:layout_alignBottom="@+id/oneDishCostPerP"
+        android:layout_alignRight="@+id/Kr"
+        android:text="Kr / Person"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <TextView
+        android:id="@id/dish_item_caption"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/close_button"
+        android:layout_toRightOf="@+id/dishCost"
+        android:text="Medium Text"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+</RelativeLayout>

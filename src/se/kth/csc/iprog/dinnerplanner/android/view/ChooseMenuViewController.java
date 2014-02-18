@@ -3,6 +3,7 @@ package se.kth.csc.iprog.dinnerplanner.android.view;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
+import android.widget.PopupWindow;
 
 import se.kth.csc.iprog.dinnerplanner.model.DinnerModel;
 import se.kth.csc.iprog.dinnerplanner.android.view.ChooseMenuView;
@@ -10,6 +11,7 @@ import se.kth.csc.iprog.dinnerplanner.android.view.ChooseMenuView;
 public class ChooseMenuViewController implements TextWatcher {
 	ChooseMenuView view;
 	DinnerModel model;
+	
 
 	public ChooseMenuViewController(DinnerModel model, ChooseMenuView view) {
 		this.model = model;

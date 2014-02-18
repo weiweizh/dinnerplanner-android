@@ -10,24 +10,33 @@ import se.kth.csc.iprog.dinnerplanner.android.R;
 import se.kth.csc.iprog.dinnerplanner.model.DinnerModel;
 import se.kth.csc.iprog.dinnerplanner.model.Dish;
 import se.kth.csc.iprog.dinnerplanner.android.view.DishItemView;
+import se.kth.csc.iprog.dinnerplanner.android.view.DishPopupView;
 import android.content.Context;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.PopupWindow;
 import android.widget.TextView;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 
+
 public class ChooseMenuView implements Observer {
 
-	View view;
+	ViewGroup view;
 	DinnerModel model;
+	public PopupWindow pressedDishWindow;
+	DishPopupView popUpContent;
 
 	EditText numOfGuestEditText;
 	TextView totalCostLabel;
+	
+	//Temp for popup
+			Dish popupDish = null;
 
 	public ChooseMenuView(View view, DinnerModel dinnerModel) {
 
 		// store in the class the reference to the Android View
-		this.view = view;
+		this.view = (ViewGroup) view;
 		this.model = dinnerModel;
 		Context context = this.view.getContext();
 
@@ -51,6 +60,9 @@ public class ChooseMenuView implements Observer {
 		LinearLayout mainCourseList = (LinearLayout) view.findViewById(R.id.main_course_list);
 		LinearLayout dessertList = (LinearLayout) view.findViewById(R.id.dessert_list);
 
+		
+		
+		
 		Set<Dish> allDishes = dinnerModel.getDishes();
 		for (Dish d : allDishes) {
 			if (d.getType() == Dish.STARTER) {
@@ -63,7 +75,28 @@ public class ChooseMenuView implements Observer {
 				DishItemView dishView = new DishItemView(context, d);
 				dessertList.addView(dishView);
 			}
+			
+			popupDish = d;
+			
 		}
+		
+		//test popupWindow
+		popUpContent = new DishPopupView (context, popupDish , model); 
+		/*pressedDishWindow = new PopupWindow((View)popUpContent, 300, 300);
+		pressedDishWindow.setTouchable(false);
+		pressedDishWindow.showAsDropDown(numOfGuestEditText); */
+		
+		popUpContent.post(new Runnable() {
+			   public void run() {
+			     pressedDishWindow = new PopupWindow((View)popUpContent, 400, 600, true);
+					pressedDishWindow.setTouchable(true);
+					pressedDishWindow.setBackgroundDrawable(null);
+					//pressedDishWindow.setFocusable(true);
+					pressedDishWindow.showAsDropDown(numOfGuestEditText);    }
+			});
+
+		
+		 
 	}
 
 	// implement update in ChooseMenuView
