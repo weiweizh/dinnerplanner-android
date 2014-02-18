@@ -5,7 +5,7 @@
     android:layout_height="fill_parent" 
     android:orientation="vertical" >
 
-    <ImageButton
+    <ImageView
         android:id="@+id/dish_item_image"
         android:layout_width="93dp"
         android:layout_height="58dp"
