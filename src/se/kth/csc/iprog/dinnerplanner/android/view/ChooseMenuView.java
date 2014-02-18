@@ -92,7 +92,7 @@ public class ChooseMenuView implements Observer {
 					pressedDishWindow.setTouchable(true);
 					pressedDishWindow.setBackgroundDrawable(null);
 					//pressedDishWindow.setFocusable(true);
-					pressedDishWindow.showAsDropDown(numOfGuestEditText);    }
+					pressedDishWindow.showAsDropDown(numOfGuestEditText, -50, 0);    }
 			});
 
 		

@@ -26,11 +26,11 @@ public class DishPopupView extends RelativeLayout{
 		this.context = context;
 		this.model = model;
 		
-
+        // inflate the layout
 		LayoutInflater inflater = (LayoutInflater)context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 		inflater.inflate(R.layout.dish_popup_view, this, true);
 		
-		// show the close button
+		
 		
 		// set the longPressed dish caption
 		TextView dishCaption = (TextView) this.findViewById(R.id.dish_item_caption);	
