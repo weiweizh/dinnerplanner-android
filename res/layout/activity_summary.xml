@@ -10,8 +10,6 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".SummaryActivity" >
 
-     
-
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -21,35 +19,35 @@
             android:id="@+id/back_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:onClick="backToChooseMenu"
             android:paddingRight="20dp"
-            android:text="@string/back_button" 
-            android:onClick="backToChooseMenu"/>
+            android:text="@string/back_button" />
 
-         <TextView
+        <TextView
             android:id="@id/total"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/total" 
             android:layout_toLeftOf="@id/total_cost"
-            android:paddingTop="10dp"/>
+            android:paddingTop="10dp"
+            android:text="@string/total" />
 
         <TextView
             android:id="@id/total_cost"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_toLeftOf="@id/SEK"
+            android:padding="5dp"
             android:text="@string/total_cost_value"
-            android:textAppearance="?android:attr/textAppearanceMedium" 
-            android:padding="5dp"/>
+            android:textAppearance="?android:attr/textAppearanceMedium" />
 
         <TextView
             android:id="@id/SEK"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/SEK"
             android:layout_alignParentRight="true"
-            android:textAppearance="?android:attr/textAppearanceSmall"
-            android:paddingTop="10dp" />
+            android:paddingTop="10dp"
+            android:text="@string/SEK"
+            android:textAppearance="?android:attr/textAppearanceSmall" />
     </RelativeLayout>
 
     <RelativeLayout
@@ -67,95 +65,131 @@
             android:id="@+id/Instructions"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/Ingredients"
             android:paddingLeft="60dp"
             android:text="@string/instructions"
-            android:textAppearance="?android:attr/textAppearanceMedium" 
-            android:layout_toRightOf="@id/Ingredients"/>
-        
-  </RelativeLayout>
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+    </RelativeLayout>
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content" >
 
-        <ImageButton
+        <ToggleButton
             android:id="@+id/btn_ingredient"
             android:layout_width="64dp"
             android:layout_height="64dp"
-            android:contentDescription="@string/desc"
-            android:padding="5dp"
-            android:paddingRight="20dp"
-            android:scaleType="fitXY"
-            android:src="@drawable/ingredients" />
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_margin="5dp"
+            android:background="@drawable/button_selector"
+            android:scaleType="fitXY" />
 
-        <ImageButton
+        <ToggleButton
             android:id="@+id/btn_dish1"
             android:layout_width="64dp"
             android:layout_height="64dp"
-            android:layout_marginLeft="30dp"
+            android:layout_alignParentTop="true"
             android:layout_toRightOf="@id/btn_ingredient"
-            android:contentDescription="@string/desc"
-            android:padding="5dp"
-            android:scaleType="centerCrop"
-            android:src="@drawable/meatballs" />
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="20dp"
+            android:background="@drawable/button_selector"
+            android:scaleType="fitXY" />
 
-        <ImageButton
+        <ToggleButton
             android:id="@+id/btn_dish2"
             android:layout_width="64dp"
             android:layout_height="64dp"
-            android:layout_marginLeft="15dp"
+            android:layout_alignParentTop="true"
             android:layout_toRightOf="@id/btn_dish1"
-            android:contentDescription="@string/desc"
-            android:padding="5dp"
-            android:scaleType="centerCrop"
-            android:src="@drawable/toast" />
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="15dp"
+            android:background="@drawable/button_selector"
+            android:scaleType="fitXY" />
 
-        <ImageButton
+        <ToggleButton
             android:id="@+id/btn_dish3"
             android:layout_width="64dp"
             android:layout_height="64dp"
-            android:layout_marginLeft="15dp"
+            android:layout_alignParentTop="true"
             android:layout_toRightOf="@id/btn_dish2"
-            android:contentDescription="@string/desc"
-            android:padding="5dp"
-            android:scaleType="centerCrop"
-            android:src="@drawable/icecream" />
-        
-         <TextView
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="15dp"
+            android:background="@drawable/button_selector"
+            android:scaleType="fitXY" />
+
+        <TextView
             android:id="@+id/dish1_caption"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignLeft="@id/btn_dish1"
-            android:layout_marginLeft="-5dp"
+            android:layout_below="@id/btn_dish1"
+            
             android:text="@string/disk1"
-            android:textAppearance="?android:attr/textAppearanceSmall" 
-            android:layout_below="@id/btn_dish1"/>
+            android:textAppearance="?android:attr/textAppearanceSmall" />
 
         <TextView
             android:id="@+id/dish2_caption"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_toRightOf="@id/dish1_caption"
-            android:layout_marginLeft="10dp"
+            android:layout_alignLeft="@id/btn_dish2"
+            android:layout_below="@id/btn_dish2"
             android:text="@string/disk2"
-            android:textAppearance="?android:attr/textAppearanceSmall" 
-            android:layout_below="@id/btn_dish2"/>
+            android:textAppearance="?android:attr/textAppearanceSmall" />
 
         <TextView
             android:id="@+id/dish3_caption"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_toRightOf="@id/dish2_caption"
-           
-            android:layout_marginLeft="10dp"
+            android:layout_below="@id/btn_dish3"
+            android:layout_alignLeft="@id/btn_dish3"
             android:text="@string/disk3"
-            android:textAppearance="?android:attr/textAppearanceSmall" 
-            android:layout_below="@id/btn_dish3"/>
+            android:textAppearance="?android:attr/textAppearanceSmall" />
 
+        <ImageView
+            android:id="@+id/image_ingredient"
+            android:layout_width="54dp"
+            android:layout_height="54dp"
+            android:layout_alignLeft="@+id/btn_ingredient"
+            android:layout_alignTop="@id/btn_ingredient"
+            android:layout_margin="5dp"
+            android:src="@drawable/ingredients"
+            android:contentDescription="@string/desc"
+            android:scaleType="fitXY" />
 
+        <ImageView
+            android:id="@+id/image_dish1"
+            android:layout_width="54dp"
+            android:layout_height="54dp"
+            android:layout_alignLeft="@+id/btn_dish1"
+            android:layout_alignTop="@id/btn_dish1"
+            android:layout_margin="5dp"
+            android:contentDescription="@string/desc"
+            android:scaleType="centerCrop"
+            android:src="@drawable/icecream" />
+        
+        <ImageView
+            android:id="@+id/image_dish2"
+            android:layout_width="54dp"
+            android:layout_height="54dp"
+            android:layout_alignLeft="@+id/btn_dish2"
+            android:layout_alignTop="@id/btn_dish2"
+            android:layout_margin="5dp"
+            android:contentDescription="@string/desc"
+            android:scaleType="centerCrop"
+            android:src="@drawable/icecream" />
+        
+        <ImageView
+            android:id="@+id/image_dish3"
+            android:layout_width="54dp"
+            android:layout_height="54dp"
+            android:layout_alignLeft="@+id/btn_dish3"
+            android:layout_alignTop="@id/btn_dish3"
+            android:layout_margin="5dp"
+            android:contentDescription="@string/desc"
+            android:scaleType="centerCrop"
+            android:src="@drawable/icecream" />
     </RelativeLayout>
-
-     
 
     <RelativeLayout
         android:id="@+id/instruction_layout"
@@ -202,7 +236,7 @@
         <ScrollView
             android:id="@+id/scrollView1"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" 
+            android:layout_height="wrap_content"
             android:layout_below="@id/TextView04" >
 
             <TableLayout
@@ -253,6 +287,16 @@
                 </TableRow>
             </TableLayout>
         </ScrollView>
+
+        <TextView
+            android:id="@+id/textNumOfGuest"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="6dp"
+            android:text="TextView" />
+
     </RelativeLayout>
 
 </LinearLayout>

@@ -16,6 +16,7 @@ import android.widget.ImageView;
 import android.widget.ImageButton;
 import android.widget.TableLayout;
 import android.widget.TableRow;
+import android.widget.ToggleButton;
 
 import android.util.Log;
 
@@ -28,10 +29,10 @@ public class SummaryView{
 	// android view objects
 	View ingredientView = null;
 	View instructionView = null;
-	ImageButton ingredientBtn = null;
-	ImageButton dish1Btn = null;
-	ImageButton dish2Btn = null;
-	ImageButton dish3Btn = null;
+	ToggleButton ingredientBtn = null;
+	ToggleButton dish1Btn = null;
+	ToggleButton dish2Btn = null;
+	ToggleButton dish3Btn = null;
 	TableLayout ingredientTable = null;
 
 	public SummaryView(View view, DinnerModel dinnerModel){
@@ -42,10 +43,13 @@ public class SummaryView{
 		
 		this.ingredientView = view.findViewById(R.id.ingredient_layout);
 		this.instructionView = view.findViewById(R.id.instruction_layout);
-		this.ingredientBtn = (ImageButton) this.view.findViewById(R.id.btn_ingredient);
-		this.dish1Btn = (ImageButton) this.view.findViewById(R.id.btn_dish1);
-		this.dish2Btn = (ImageButton) this.view.findViewById(R.id.btn_dish2);
-		this.dish3Btn = (ImageButton) this.view.findViewById(R.id.btn_dish3);
+		this.ingredientBtn = (ToggleButton) this.view.findViewById(R.id.btn_ingredient);
+		this.dish1Btn = (ToggleButton) this.view.findViewById(R.id.btn_dish1);
+		this.dish2Btn = (ToggleButton) this.view.findViewById(R.id.btn_dish2);
+		this.dish3Btn = (ToggleButton) this.view.findViewById(R.id.btn_dish3);
+		ImageView dish1Image = (ImageView) this.view.findViewById(R.id.image_dish1);
+		ImageView dish2Image = (ImageView) this.view.findViewById(R.id.image_dish2);
+		ImageView dish3Image = (ImageView) this.view.findViewById(R.id.image_dish3);
 		
 		//Init all local vars
 		Context context = this.view.getContext();
@@ -64,9 +68,9 @@ public class SummaryView{
 		TextView dishCaption3 = (TextView) view.findViewById(R.id.dish3_caption);
 		
 		//	reset all images
-		this.dish1Btn.setImageDrawable(null);
-		this.dish2Btn.setImageDrawable(null);
-		this.dish3Btn.setImageDrawable(null);
+		dish1Image.setImageDrawable(null);
+		dish2Image.setImageDrawable(null);
+		dish3Image.setImageDrawable(null);
 
 		//  get selected dishes
 		Set<Dish> selectedDishes = dinnerModel.getFullMenu();
@@ -82,13 +86,14 @@ public class SummaryView{
 			}
 			
 			if(d.getType() == Dish.STARTER){
-				this.dish1Btn.setImageResource(DinnerPlannerApplication.getImageResId(context, d.getImage()));
+				dish1Image.setImageResource(DinnerPlannerApplication.getImageResId(context, d.getImage()));
+//				this.dish1Btn.setBackground(DinnerPlannerApplication.getImageResId(context, d.getImage()));
 				dishCaption1.setText(d.getName());
 			}else if(d.getType() == Dish.MAIN){
-				this.dish2Btn.setImageResource(DinnerPlannerApplication.getImageResId(context, d.getImage()));
+				dish2Image.setImageResource(DinnerPlannerApplication.getImageResId(context, d.getImage()));
 				dishCaption2.setText(d.getName());
 			}else if(d.getType() == Dish.DESERT){
-				this.dish3Btn.setImageResource(DinnerPlannerApplication.getImageResId(context, d.getImage()));
+				dish3Image.setImageResource(DinnerPlannerApplication.getImageResId(context, d.getImage()));
 				dishCaption3.setText(d.getName());
 			}
 			
@@ -101,7 +106,7 @@ public class SummaryView{
 				nameText.setText(ingre.getName());
 
 				TextView quantityText = new TextView(context);
-				double ingreQuan = ingre.getQuantity();
+				double ingreQuan = ingre.getQuantity()*this.model.getNumberOfGuests();
 				//format double nicely
 				String strIngreQuan = (ingreQuan == (int) ingreQuan) ? String.format("%.0f",ingreQuan) : String.format("%s",ingreQuan);
 				quantityText.setText(strIngreQuan + " "+ingre.getUnit());
@@ -113,14 +118,16 @@ public class SummaryView{
 				this.ingredientTable.addView(row);
 				
 			}
-			
 		}
 
 		//show ingredientView by default
+		TextView textNumOfGuest = (TextView) this.view.findViewById(R.id.textNumOfGuest);
+		textNumOfGuest.setText(this.model.getNumberOfGuests() + " pers");
+		
+		this.ingredientBtn.setChecked(true);
 		this.ingredientView.setVisibility(View.VISIBLE);
 		this.instructionView.setVisibility(View.GONE);
 		
-//		this.updateIntruction();
 		
 	}
 	
