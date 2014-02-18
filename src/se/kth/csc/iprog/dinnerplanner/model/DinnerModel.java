@@ -215,6 +215,12 @@ public class DinnerModel extends Observable implements IDinnerModel{
 		if(!isReplace){
 			this.selectedDishes.add(selDish);			
 		}
+		//TODO:
+		//this.selDish = selDish;
+		this.setChanged();
+//		changedItem = "numOfGuest";
+		this.changedItem = ChangedDataType.SELECTED_DISH;
+		this.notifyObservers(changedItem);
 	}
 	
 	/**

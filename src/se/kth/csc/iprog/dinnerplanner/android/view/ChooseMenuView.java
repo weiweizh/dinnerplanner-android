@@ -12,6 +12,8 @@ import se.kth.csc.iprog.dinnerplanner.model.Dish;
 import se.kth.csc.iprog.dinnerplanner.android.view.DishItemView;
 import se.kth.csc.iprog.dinnerplanner.android.view.DishPopupView;
 import android.content.Context;
+import android.graphics.Color;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.PopupWindow;
@@ -29,6 +31,10 @@ public class ChooseMenuView implements Observer {
 
 	EditText numOfGuestEditText;
 	TextView totalCostLabel;
+	
+	LinearLayout starterList;
+	LinearLayout mainCourseList;
+	LinearLayout dessertList;
 	
 	//Temp for popup
 			Dish popupDish = null;
@@ -56,9 +62,9 @@ public class ChooseMenuView implements Observer {
 		this.totalCostLabel.setText(String.valueOf(this.model.getTotalMenuPrice()));
 
 		// Add dishes to Starter/ Main/ Dessert list accordingly
-		LinearLayout starterList = (LinearLayout) view.findViewById(R.id.starter_list);
-		LinearLayout mainCourseList = (LinearLayout) view.findViewById(R.id.main_course_list);
-		LinearLayout dessertList = (LinearLayout) view.findViewById(R.id.dessert_list);
+		starterList = (LinearLayout) view.findViewById(R.id.starter_list);
+		mainCourseList = (LinearLayout) view.findViewById(R.id.main_course_list);
+		dessertList = (LinearLayout) view.findViewById(R.id.dessert_list);
 
 		
 		
@@ -105,10 +111,34 @@ public class ChooseMenuView implements Observer {
 			DinnerModel model = (DinnerModel) observable;
 			if (changedItem == DinnerModel.ChangedDataType.NUM_OF_GUEST) {
 //				this.numOfGuestEditText.setText(String.valueOf(model.getNumberOfGuests()));
-				
+				Log.v("observer","Number of guests have changed");
 				this.totalCostLabel.setText(String.valueOf(model.getTotalMenuPrice()));
 			}else if(changedItem == DinnerModel.ChangedDataType.SELECTED_DISH){
 				//TODO: hightlight selected dishes
+				Log.v("observer","dishes have changed. Chosen starter: " + model.getSelectedDish(1).getName() + " chosen main: " + model.getSelectedDish(2).getName() + " chosen dessert: " + model.getSelectedDish(3).getName());
+				
+				Object starterArray[] = model.getDishesOfType(1).toArray();
+				for(int i = 0; i < starterList.getChildCount(); i++){
+					if(starterArray[i].equals(model.getSelectedDish(1))){
+						starterList.getChildAt(i).setBackgroundColor(Color.GRAY);
+					}
+				}
+				
+				Object mainCourseArray[] = model.getDishesOfType(2).toArray();
+				for(int i = 0; i < mainCourseList.getChildCount(); i++){
+					if(mainCourseArray[i].equals(model.getSelectedDish(2))){
+						mainCourseList.getChildAt(i).setBackgroundColor(Color.GRAY);
+					}
+				}
+
+				Object dessertArray[] = model.getDishesOfType(3).toArray();
+				for(int i = 0; i < dessertList.getChildCount(); i++){
+					if(dessertArray[i].equals(model.getSelectedDish(3))){
+						dessertList.getChildAt(i).setBackgroundColor(Color.GRAY);
+					}
+				}
+				
+				
 				
 			}
 			
