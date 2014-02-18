@@ -133,29 +133,14 @@
         </LinearLayout>
     </HorizontalScrollView>
 
-    <LinearLayout
+    <Button
+        android:id="@+id/creat_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="40dp"
         android:layout_marginBottom="10dp"
-        >
-    
-    <Button
-        android:id="@+id/creat_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:text="@string/create_button"
         android:onClick="createMenu" />
-    
-    <Button
-        android:id="@+id/test_select"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Test Selection"
-        android:onClick="testSelect" />
-
-    
-    </LinearLayout>
 
 </LinearLayout>

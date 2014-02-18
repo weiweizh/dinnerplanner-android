@@ -116,29 +116,7 @@ public class ChooseMenuView implements Observer {
 			}else if(changedItem == DinnerModel.ChangedDataType.SELECTED_DISH){
 				//TODO: hightlight selected dishes
 				Log.v("observer","dishes have changed. Chosen starter: " + model.getSelectedDish(1).getName() + " chosen main: " + model.getSelectedDish(2).getName() + " chosen dessert: " + model.getSelectedDish(3).getName());
-				
-				Object starterArray[] = model.getDishesOfType(1).toArray();
-				for(int i = 0; i < starterList.getChildCount(); i++){
-					if(starterArray[i].equals(model.getSelectedDish(1))){
-						starterList.getChildAt(i).setBackgroundColor(Color.GRAY);
-					}
-				}
-				
-				Object mainCourseArray[] = model.getDishesOfType(2).toArray();
-				for(int i = 0; i < mainCourseList.getChildCount(); i++){
-					if(mainCourseArray[i].equals(model.getSelectedDish(2))){
-						mainCourseList.getChildAt(i).setBackgroundColor(Color.GRAY);
-					}
-				}
 
-				Object dessertArray[] = model.getDishesOfType(3).toArray();
-				for(int i = 0; i < dessertList.getChildCount(); i++){
-					if(dessertArray[i].equals(model.getSelectedDish(3))){
-						dessertList.getChildAt(i).setBackgroundColor(Color.GRAY);
-					}
-				}
-				
-				
 				
 			}
 			
