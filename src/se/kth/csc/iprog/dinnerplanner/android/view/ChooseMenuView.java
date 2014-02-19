@@ -90,7 +90,7 @@ public class ChooseMenuView implements Observer {
 				DishItemViewController dishViewController = new DishItemViewController(model, dishView, this);
 			}
 			
-			popupDish = d;
+	
 			
 		}
 		
