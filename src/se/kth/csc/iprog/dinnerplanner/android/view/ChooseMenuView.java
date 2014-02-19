@@ -10,6 +10,7 @@ import se.kth.csc.iprog.dinnerplanner.android.R;
 import se.kth.csc.iprog.dinnerplanner.model.DinnerModel;
 import se.kth.csc.iprog.dinnerplanner.model.Dish;
 import se.kth.csc.iprog.dinnerplanner.android.view.DishItemView;
+import se.kth.csc.iprog.dinnerplanner.android.view.DishItemViewController;
 import se.kth.csc.iprog.dinnerplanner.android.view.DishPopupView;
 import android.content.Context;
 import android.graphics.Color;
@@ -74,12 +75,19 @@ public class ChooseMenuView implements Observer {
 			if (d.getType() == Dish.STARTER) {
 				DishItemView dishView = new DishItemView(context, d);
 				starterList.addView(dishView);
+				
+				DishItemViewController dishViewController = new DishItemViewController(model, dishView);
+				
 			} else if (d.getType() == Dish.MAIN) {
 				DishItemView dishView = new DishItemView(context, d);
 				mainCourseList.addView(dishView);
+
+				DishItemViewController dishViewController = new DishItemViewController(model, dishView);
 			} else if (d.getType() == Dish.DESERT) {
 				DishItemView dishView = new DishItemView(context, d);
 				dessertList.addView(dishView);
+
+				DishItemViewController dishViewController = new DishItemViewController(model, dishView);
 			}
 			
 			popupDish = d;
