@@ -25,8 +25,9 @@ import android.widget.LinearLayout;
 
 public class ChooseMenuView implements Observer {
 
-	ViewGroup view;
-	DinnerModel model;
+	ViewGroup view = null;
+	DinnerModel model = null;
+	
 	public PopupWindow pressedDishWindow;
 	DishPopupView popUpContent;
 
@@ -73,18 +74,18 @@ public class ChooseMenuView implements Observer {
 				DishItemView dishView = new DishItemView(context, d);
 				starterList.addView(dishView);
 				
-				DishItemViewController dishViewController = new DishItemViewController(model, dishView);
+				DishItemViewController dishViewController = new DishItemViewController(model, dishView, this);
 				
 			} else if (d.getType() == Dish.MAIN) {
 				DishItemView dishView = new DishItemView(context, d);
 				mainCourseList.addView(dishView);
 
-				DishItemViewController dishViewController = new DishItemViewController(model, dishView);
+				DishItemViewController dishViewController = new DishItemViewController(model, dishView, this);
 			} else if (d.getType() == Dish.DESERT) {
 				DishItemView dishView = new DishItemView(context, d);
 				dessertList.addView(dishView);
 
-				DishItemViewController dishViewController = new DishItemViewController(model, dishView);
+				DishItemViewController dishViewController = new DishItemViewController(model, dishView, this);
 			}
 			
 			popupDish = d;
@@ -150,6 +151,12 @@ public class ChooseMenuView implements Observer {
 				Log.e("Observer:ChooseMenuView:", "unknown update data type");
 			}
 		}
+	}
+
+	public void showPopup(){
+		//TODO: implement this method to showPopup
+		Log.d("ChooseMenuView", "showPopup()");
+		
 	}
 	
 	protected void updateTotalCost(){

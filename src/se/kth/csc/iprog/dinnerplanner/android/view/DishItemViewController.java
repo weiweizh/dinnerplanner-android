@@ -8,15 +8,17 @@ import android.view.View.OnLongClickListener;
 
 import se.kth.csc.iprog.dinnerplanner.model.DinnerModel;
 import se.kth.csc.iprog.dinnerplanner.android.view.DishItemView; 
+import se.kth.csc.iprog.dinnerplanner.android.view.ChooseMenuView; 
 
 public class DishItemViewController implements OnClickListener, OnLongClickListener{
-	DinnerModel model;
-	DishItemView view;
+	DinnerModel model = null;
+	DishItemView view = null;
+	ChooseMenuView parentView = null;
 	
-	
-	public DishItemViewController(DinnerModel dinnerModel, DishItemView dishItemView) {
+	public DishItemViewController(DinnerModel dinnerModel, DishItemView dishItemView, ChooseMenuView pageView) {
 		this.model = dinnerModel;
 		this.view = dishItemView;
+		this.parentView = pageView;
 		
 		//Set up listeners here
 		this.view.setOnClickListener(this);
@@ -28,9 +30,7 @@ public class DishItemViewController implements OnClickListener, OnLongClickListe
 	@Override
 	public void onClick(View clickedView) {
 		// TODO Auto-generated method stub
-		Log.d("DishItemViewController", "onClick");
-		
-		
+		Log.d("DishItemViewController", "onClick");	
 		if(clickedView instanceof DishItemView){
 			//Highlight selected dish
 			((DishItemView) clickedView).setHighlight(true);
@@ -43,10 +43,19 @@ public class DishItemViewController implements OnClickListener, OnLongClickListe
 
 
 	@Override
-	public boolean onLongClick(View arg0) {
+	public boolean onLongClick(View clickedView) {
 		// TODO Auto-generated method stub
 		Log.d("DishItemViewController", "onLongClick");
-		return false;
+		
+		if(clickedView instanceof DishItemView){
+			if(this.parentView != null){
+				this.parentView.showPopup();
+			}
+			
+		}
+		
+		//return true so it wont trigger onClick
+		return true;
 	}
 
 }
