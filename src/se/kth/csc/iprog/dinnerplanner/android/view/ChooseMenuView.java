@@ -60,15 +60,12 @@ public class ChooseMenuView implements Observer {
 
 		// Set total cost
 		this.totalCostLabel = (TextView) view.findViewById(R.id.total_cost);
-		this.totalCostLabel.setText(String.valueOf(this.model.getTotalMenuPrice()));
-
+		this.updateTotalCost();
+		
 		// Add dishes to Starter/ Main/ Dessert list accordingly
 		starterList = (LinearLayout) view.findViewById(R.id.starter_list);
 		mainCourseList = (LinearLayout) view.findViewById(R.id.main_course_list);
 		dessertList = (LinearLayout) view.findViewById(R.id.dessert_list);
-
-		
-		
 		
 		Set<Dish> allDishes = dinnerModel.getDishes();
 		for (Dish d : allDishes) {
@@ -117,20 +114,47 @@ public class ChooseMenuView implements Observer {
 	public void update(Observable observable, Object changedItem) {
 		if (observable instanceof DinnerModel) {
 			DinnerModel model = (DinnerModel) observable;
+			
 			if (changedItem == DinnerModel.ChangedDataType.NUM_OF_GUEST) {
-//				this.numOfGuestEditText.setText(String.valueOf(model.getNumberOfGuests()));
 				Log.v("observer","Number of guests have changed");
-				this.totalCostLabel.setText(String.valueOf(model.getTotalMenuPrice()));
-			}else if(changedItem == DinnerModel.ChangedDataType.SELECTED_DISH){
-				//TODO: hightlight selected dishes
-				Log.v("observer","dishes have changed. Chosen starter: " + model.getSelectedDish(1).getName() + " chosen main: " + model.getSelectedDish(2).getName() + " chosen dessert: " + model.getSelectedDish(3).getName());
-
+				this.updateTotalCost();
+			}else if(changedItem instanceof Dish){
+				//below log msg will lead to null pointer exception if there is no selected dishes
+//				Log.v("observer","dishes have changed. Chosen starter: " + model.getSelectedDish(1).getName() + " chosen main: " + model.getSelectedDish(2).getName() + " chosen dessert: " + model.getSelectedDish(3).getName());
+				Log.v("Observer", this.model.getFullMenu().toArray().toString());
+				Dish selectedDish = (Dish) changedItem;
 				
+				LinearLayout changedList = null;
+				if(selectedDish.getType() == Dish.STARTER){
+					changedList = this.starterList;
+				}else if(selectedDish.getType() == Dish.MAIN){
+					changedList = this.mainCourseList;
+				}else if(selectedDish.getType() == Dish.DESERT){
+					changedList = this.dessertList;
+				}
+				
+				if(changedList != null){
+					//Unhightlight all dishes
+					//Highlight selected dishes
+					for (int i = 0; i < changedList.getChildCount(); i++) {
+						DishItemView eachDishView = (DishItemView) changedList.getChildAt(i);
+						if(eachDishView.dish != selectedDish){
+							eachDishView.setHighlight(false);	
+						}
+					}	
+				}
+				
+				//also update price
+				this.updateTotalCost();
+			}else{
+				Log.e("Observer:ChooseMenuView:", "unknown update data type");
 			}
-			
-			
-			
 		}
+	}
+	
+	protected void updateTotalCost(){
+
+		this.totalCostLabel.setText(String.valueOf(model.getTotalMenuPrice()));
 	}
 
 }

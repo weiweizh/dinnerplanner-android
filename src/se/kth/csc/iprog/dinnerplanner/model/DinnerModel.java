@@ -2,8 +2,11 @@ package se.kth.csc.iprog.dinnerplanner.model;
 
 
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.Set;
 import java.util.Observable;
+
+import android.util.Log;
 
  
 public class DinnerModel extends Observable implements IDinnerModel{
@@ -14,7 +17,6 @@ public class DinnerModel extends Observable implements IDinnerModel{
 	Set<Dish> dishes = new HashSet<Dish>();
 	Set<Dish> selectedDishes = new HashSet<Dish>();
 	int numOfGuest = 0;
-	Object changedItem;
 	
 	
 	/**
@@ -77,18 +79,18 @@ public class DinnerModel extends Observable implements IDinnerModel{
 		dish5.addIngredient(new Ingredient("yogurt", 100, "ml", 5));
 		this.dishes.add(dish5);
 		
-		Dish dish6 = new Dish("French toast",Dish.DESERT,"toast","In a large mixing bowl, beat the eggs. Add the milk, brown sugar and nutmeg; stir well to combine. Soak bread slices in the egg mixture until saturated. Heat a lightly oiled griddle or frying pan over medium high heat. Brown slices on both sides, sprinkle with cinnamon and serve hot.");
-		dish6.addIngredient(new Ingredient("eggs",0.5,"",1));
-		dish6.addIngredient(new Ingredient("milk",30,"ml",6));
-		dish6.addIngredient(new Ingredient("brown sugar",7,"g",1));
-		dish6.addIngredient(new Ingredient("ground nutmeg",0.5,"g",12));
-		dish6.addIngredient(new Ingredient("white bread",2,"slices",2));
-		dishes.add(dish6);
+//		Dish dish6 = new Dish("French toast",Dish.DESERT,"toast","In a large mixing bowl, beat the eggs. Add the milk, brown sugar and nutmeg; stir well to combine. Soak bread slices in the egg mixture until saturated. Heat a lightly oiled griddle or frying pan over medium high heat. Brown slices on both sides, sprinkle with cinnamon and serve hot.");
+//		dish6.addIngredient(new Ingredient("eggs",0.5,"",1));
+//		dish6.addIngredient(new Ingredient("milk",30,"ml",6));
+//		dish6.addIngredient(new Ingredient("brown sugar",7,"g",1));
+//		dish6.addIngredient(new Ingredient("ground nutmeg",0.5,"g",12));
+//		dish6.addIngredient(new Ingredient("white bread",2,"slices",2));
+//		dishes.add(dish6);
 		
-		Dish dish7 = new Dish("temp", Dish.DESERT, "bakedbrie", "Preheat oven to 200deg. Put the brie inside. Close the oven. Bake for 50 minutes.");
-		dish7.addIngredient(new Ingredient("flour", 1/4, "wheel", 100));
-		dish7.addIngredient(new Ingredient("honey", 4, "tablespoons", 5));
-		this.dishes.add(dish7);
+//		Dish dish7 = new Dish("temp", Dish.DESERT, "bakedbrie", "Preheat oven to 200deg. Put the brie inside. Close the oven. Bake for 50 minutes.");
+//		dish7.addIngredient(new Ingredient("flour", 1/4, "wheel", 100));
+//		dish7.addIngredient(new Ingredient("honey", 4, "tablespoons", 5));
+//		this.dishes.add(dish7);
 		
 		Dish dish8 = new Dish("Bruschetta", Dish.STARTER, "bruschetta", "Preheat oven to 200deg. Put the brie inside. Close the oven. Bake for 50 minutes.");
 		dish8.addIngredient(new Ingredient("flour", 1/4, "wheel", 100));
@@ -135,11 +137,6 @@ public class DinnerModel extends Observable implements IDinnerModel{
 		dish16.addIngredient(new Ingredient("honey", 4, "tablespoons", 5));
 		this.dishes.add(dish16);
 		
-		//**TEMP for Lab1** select some default dishes for display//
-		this.selectDish(dish1);
-		this.selectDish(dish2);
-		this.selectDish(dish4);
-		
 		this.numOfGuest = 2;
 		
 	}
@@ -184,10 +181,9 @@ public class DinnerModel extends Observable implements IDinnerModel{
 	}
 	public void setNumberOfGuests(int numberOfGuests){
 		this.numOfGuest = numberOfGuests;
+		
 		this.setChanged();
-//		changedItem = "numOfGuest";
-		this.changedItem = ChangedDataType.NUM_OF_GUEST;
-		this.notifyObservers(changedItem);
+		this.notifyObservers(ChangedDataType.NUM_OF_GUEST);
 	}
 	
 	/**
@@ -201,20 +197,27 @@ public class DinnerModel extends Observable implements IDinnerModel{
 		}
 		return null;
 	}
-	public void selectDish(Dish selDish){
-		boolean isReplace = false;
-		
-		// Check and replace originally selected dish of same type
-		for(Dish d : this.selectedDishes){
-			if(d.getType() == selDish.getType()){
-				d = selDish;
-				isReplace = true;
+	public void selectDish(Dish selDish){		
+		// Check and remove originally selected dish of same type		
+		Iterator<Dish> itDish = this.selectedDishes.iterator();
+	    while(itDish.hasNext()) {
+	    	Dish eachDish = itDish.next();
+			if(eachDish == selDish){
+				return;
 			}
-		}
+			
+			if(eachDish.getType() == selDish.getType()){
+				itDish.remove();
+			}
+	    }
 		
-		if(!isReplace){
-			this.selectedDishes.add(selDish);			
-		}
+	    // Add new selection to the list
+		this.selectedDishes.add(selDish);			
+
+		
+		// Notify observers after change
+		this.setChanged();
+		this.notifyObservers(selDish);
 	}
 	
 	/**

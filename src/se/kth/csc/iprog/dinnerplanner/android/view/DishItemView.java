@@ -6,6 +6,7 @@ import se.kth.csc.iprog.dinnerplanner.model.Dish;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.content.Context;
+import android.graphics.Color;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.widget.TextView;
@@ -36,6 +37,14 @@ public class DishItemView extends LinearLayout{
 		TextView dishCaption = (TextView) this.findViewById(R.id.dish_item_caption);	
 		dishCaption.setText(String.valueOf(this.dish.getName()));
 
+	}
+	
+	public void setHighlight(boolean enableHighlight){
+		if(enableHighlight){
+			this.setBackgroundColor(Color.GRAY);
+		}else{
+			this.setBackgroundColor(Color.TRANSPARENT);
+		}
 	}
 
 

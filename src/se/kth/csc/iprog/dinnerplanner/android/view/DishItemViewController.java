@@ -1,5 +1,6 @@
 package se.kth.csc.iprog.dinnerplanner.android.view;
 
+import android.graphics.Color;
 import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -25,9 +26,18 @@ public class DishItemViewController implements OnClickListener, OnLongClickListe
 
 
 	@Override
-	public void onClick(View arg0) {
+	public void onClick(View clickedView) {
 		// TODO Auto-generated method stub
 		Log.d("DishItemViewController", "onClick");
+		
+		
+		if(clickedView instanceof DishItemView){
+			//Highlight selected dish
+			((DishItemView) clickedView).setHighlight(true);
+
+			//Update DinnerModel
+			this.model.selectDish(((DishItemView) clickedView).dish);	
+		}
 		
 	}
 
