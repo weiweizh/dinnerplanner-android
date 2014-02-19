@@ -38,6 +38,8 @@ public class ChooseMenuView implements Observer {
 	LinearLayout mainCourseList;
 	LinearLayout dessertList;
 	
+	Context context;
+	
 	//Temp for popup
 			Dish popupDish = null;
 
@@ -46,7 +48,7 @@ public class ChooseMenuView implements Observer {
 		// store in the class the reference to the Android View
 		this.view = (ViewGroup) view;
 		this.model = dinnerModel;
-		Context context = this.view.getContext();
+		context = this.view.getContext();
 
 		// register the view to the DinnerModel as an observer
 		dinnerModel.addObserver(this);
@@ -93,10 +95,10 @@ public class ChooseMenuView implements Observer {
 		}
 		
 		//test popupWindow
-		popUpContent = new DishPopupView (context, popupDish , model); 
+		/*popUpContent = new DishPopupView (context, popupDish , model); 
 		/*pressedDishWindow = new PopupWindow((View)popUpContent, 300, 300);
 		pressedDishWindow.setTouchable(false);
-		pressedDishWindow.showAsDropDown(numOfGuestEditText); */
+		pressedDishWindow.showAsDropDown(numOfGuestEditText); 
 		
 		popUpContent.post(new Runnable() {
 			   public void run() {
@@ -105,7 +107,7 @@ public class ChooseMenuView implements Observer {
 					pressedDishWindow.setBackgroundDrawable(null);
 					//pressedDishWindow.setFocusable(true);
 					pressedDishWindow.showAsDropDown(numOfGuestEditText, -50, 0);    }
-			});
+			})*/
 
 		
 		 
@@ -153,9 +155,21 @@ public class ChooseMenuView implements Observer {
 		}
 	}
 
-	public void showPopup(){
+	public void showPopup(Dish dish){
 		//TODO: implement this method to showPopup
 		Log.d("ChooseMenuView", "showPopup()");
+		
+		
+		popUpContent = new DishPopupView (context, dish , model); 
+		popUpContent.post(new Runnable() {
+			   public void run() {
+			     pressedDishWindow = new PopupWindow((View)popUpContent, 400, 600, true);
+					pressedDishWindow.setTouchable(true);
+					pressedDishWindow.setBackgroundDrawable(null);
+					//pressedDishWindow.setFocusable(true);
+				    pressedDishWindow.showAsDropDown(numOfGuestEditText, -50, 0);    }
+			});
+		
 		
 	}
 	

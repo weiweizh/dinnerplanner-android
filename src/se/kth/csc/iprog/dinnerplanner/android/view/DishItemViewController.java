@@ -49,7 +49,7 @@ public class DishItemViewController implements OnClickListener, OnLongClickListe
 		
 		if(clickedView instanceof DishItemView){
 			if(this.parentView != null){
-				this.parentView.showPopup();
+				this.parentView.showPopup(((DishItemView) clickedView).dish);
 			}
 			
 		}
